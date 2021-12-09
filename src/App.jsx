@@ -1,4 +1,4 @@
-import { LinkRoutes } from "./LinkRoutes";
+import { LinkRoutes } from "./routers/LinkRoutes";
 
 
 function App() {
