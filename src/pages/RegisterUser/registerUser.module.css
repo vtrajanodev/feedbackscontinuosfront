@@ -42,6 +42,7 @@
 .registerForm h1 {
   text-align: center;
   margin-bottom: 1rem;
+  color: var(--light-green);
 }
 
 .registerForm div {
@@ -76,7 +77,7 @@
   display: flex;
   border-radius: .20rem;
   background-color:  #ecf0f1;
-  color: rgb(0, 0, 0);
+  color: rgb(87, 87, 87);
   text-align: center;
   display: flex;
   align-items: center;
