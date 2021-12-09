@@ -1,6 +1,9 @@
 
 :root {
   font-size: 16px;
+  --light-green: #58af9b;
+  --light-gray: #7f8c8d;
+  --white: #fff;
 }
 
 * {
@@ -12,6 +15,10 @@
 li {
   list-style-type: none;
 }
+
+input[type='file'] {
+  display: none;
+} 
 
 a {
   text-decoration: none;
