@@ -1,8 +1,11 @@
+import { LinkRoutes } from "./LinkRoutes";
+
+
 function App() {
   return (
-    <div>
-      Hello World
-    </div>
+    <>
+      <LinkRoutes />
+    </>
   );
 }
 
