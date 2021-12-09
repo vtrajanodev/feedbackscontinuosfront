@@ -57,6 +57,10 @@
   margin: 0 auto;
 }
 
+.registerForm input::placeholder {
+  font-weight: 600;
+}
+
 .registerForm div:nth-child(5) {
   margin-left: 3.4rem;
 }
@@ -96,4 +100,6 @@
   margin-top: 2rem;
   text-align: center;
   cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
 }
