@@ -1,0 +1,12 @@
+header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+
+header img {
+  width: 50px;
+  border-radius: 100%;
+}

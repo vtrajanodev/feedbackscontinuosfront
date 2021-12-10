@@ -3,6 +3,7 @@ import { RegisterUser } from '../pages/RegisterUser/RegisterUser';
 import { Login } from '../pages/Login/Login';
 import { EmployeeContextProvider } from "../context/EmployeeContext";
 import { AuthContextProvider } from "../context/AuthContext";
+import { Header } from "../components/Header/Header";
 
 
 export const LinkRoutes = () => {
@@ -10,6 +11,7 @@ export const LinkRoutes = () => {
     <BrowserRouter>
       <AuthContextProvider>
         <EmployeeContextProvider>
+          <Header />
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro-usuario" element={<RegisterUser />} />
