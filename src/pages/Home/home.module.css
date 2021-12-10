@@ -25,3 +25,32 @@ main ul li {
 main a {
   color: black;
 }
+
+.cardsList {
+  width: 1120px;
+  margin: 2rem auto;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  height: 100px;
+  margin-top: 2rem;
+  border-radius: .25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #dddddd;
+
+}
+
+.card h3 {
+  margin-bottom: 1.4rem;
+}
+
+.card img {
+  width: 50px;
+  border-radius: 100%;
+}
+
+
