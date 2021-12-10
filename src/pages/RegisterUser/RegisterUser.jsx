@@ -1,8 +1,6 @@
 import { Field, Form, Formik } from 'formik';
 import styles from './registerUser.module.css';
 
-
-
 export const RegisterUser = () => {
   return (
     <div className={styles.registerUserContainer}>
