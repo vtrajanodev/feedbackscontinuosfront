@@ -26,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
       localStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
-      navigate('/')
+      navigate('/home')
     } catch (err) {
       alert(err)
     }

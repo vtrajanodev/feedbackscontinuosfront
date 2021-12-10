@@ -12,7 +12,6 @@ export const Header = () => {
     <>
       {isAuthenticated &&
         <header>
-
           <Link to="/home">
             <img src={imgPerfil} alt="Imagem de perfil" />
           </Link>
