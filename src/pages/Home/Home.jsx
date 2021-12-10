@@ -1,13 +1,28 @@
+import { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
+import { EmployeeContext } from '../../context/EmployeeContext'
 import logo from '../../images/img.jpg'
+import { api } from '../../services/api'
 import styles from './home.module.css'
 
 export const Home = () => {
+
+  const { employee, getEmployeeInfos } = useContext(EmployeeContext)
+  
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      api.defaults.headers.common['Authorization'] = token
+    }
+    getEmployeeInfos()
+  }, [])
+
   return (
     <main>
       <div className={styles.mainHeader}>
         <div>
-          Ola, usuário. Bem vindo!
+          Ola {employee.nome} Bem vindo!
         </div>
         <nav>
           <ul>
@@ -28,7 +43,7 @@ export const Home = () => {
             <img src={logo} alt="Imagem perfil card" />
           </div>
           <div className={styles.cardContent}>
-            <h3>Nome do usuário</h3>
+            <h3>{employee.nome}</h3>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem delectus facere, sed porro ratione sint at iusto sequi minima autem.</p>
           </div>
         </div>
@@ -39,10 +54,9 @@ export const Home = () => {
           </div>
           <div className={styles.cardContent}>
             <div>
-              <h3>Nome do usuário</h3>
+              <h3>{employee.nome}</h3>
             </div>
             <div>
-              <button></button>
             </div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem delectus facere, sed porro ratione sint at iusto sequi minima autem.</p>
           </div>
