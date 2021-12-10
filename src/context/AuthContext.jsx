@@ -6,12 +6,12 @@ export const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
   const navigate = useNavigate()
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    if(token) {
+    if (token) {
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
     }
@@ -19,8 +19,9 @@ export const AuthContextProvider = ({ children }) => {
 
   const handleLogin = async (employee) => {
     try {
-      const { data } = await api.post('/funcionario/login', employee)
-      const token = data
+      const response = await api.post('/funcionario/login', employee)
+      console.log(response)
+      const token = response.data
       console.log(token)
       localStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
@@ -31,8 +32,18 @@ export const AuthContextProvider = ({ children }) => {
     }
   }
 
+  const handleLogout = () => {
+    const logout = localStorage.removeItem('token')
+
+    if (localStorage.getItem('token') !== null) {
+      setIsAuthenticated(false)
+    }
+      
+    return logout
+  }
+
   return (
-    <AuthContext.Provider value={{handleLogin}}>
+    <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout }}>
       {children}
     </AuthContext.Provider>
   );

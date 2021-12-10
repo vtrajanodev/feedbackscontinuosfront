@@ -1,16 +1,29 @@
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
 import imgPerfil from '../../images/img.jpg'
 import styles from './header.module.css'
 
 export const Header = () => {
 
+  const { isAuthenticated, handleLogout } = useContext(AuthContext)
+
   return (
-    <header>
-      <div>
-        <img src={imgPerfil} alt="Imagem de perfil" />
-      </div>
-      <div>
-        Nome do usuario
-      </div>
-    </header>
+    <>
+      {isAuthenticated &&
+        <header>
+
+          <Link to="/home">
+            <img src={imgPerfil} alt="Imagem de perfil" />
+          </Link>
+          <span>
+            Nome do usuario
+          </span>
+          <Link to="/login" onClick={handleLogout}>
+            Logout
+          </Link>
+        </header>
+      }
+    </>
   )
 }

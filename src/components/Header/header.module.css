@@ -10,3 +10,7 @@ header img {
   width: 50px;
   border-radius: 100%;
 }
+
+header a {
+  color: #61CE70;
+}
