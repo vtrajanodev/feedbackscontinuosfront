@@ -6,7 +6,7 @@ export const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const AuthContextProvider = ({ children }) => {
   const handleLogout = () => {
     const logout = localStorage.removeItem('token')
 
-    if (localStorage.getItem('token') !== null) {
+    if (localStorage.getItem('token') === null) {
       setIsAuthenticated(false)
     }
       
