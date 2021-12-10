@@ -33,12 +33,17 @@ export const Home = () => {
           </div>
         </div>
 
-         <div className={styles.card}>
+        <div className={styles.card}>
           <div>
             <img src={logo} alt="Imagem perfil card" />
           </div>
           <div className={styles.cardContent}>
-            <h3>Nome do usuário</h3>
+            <div>
+              <h3>Nome do usuário</h3>
+            </div>
+            <div>
+              <button></button>
+            </div>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem delectus facere, sed porro ratione sint at iusto sequi minima autem.</p>
           </div>
         </div>
