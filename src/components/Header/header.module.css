@@ -1,9 +1,10 @@
 header {
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 2rem 0;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  background-color: #dddddd;
 }
 
 header img {

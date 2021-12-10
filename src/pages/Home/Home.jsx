@@ -1,23 +1,13 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
-import { EmployeeContext } from '../../context/EmployeeContext'
 import logo from '../../images/img.jpg'
-import { api } from '../../services/api'
 import styles from './home.module.css'
 
 export const Home = () => {
 
-  const { employee, getEmployeeInfos } = useContext(EmployeeContext)
+  const { employee } = useContext(AuthContext)
   
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      api.defaults.headers.common['Authorization'] = token
-    }
-    getEmployeeInfos()
-  }, [])
-
   return (
     <main>
       <div className={styles.mainHeader}>
