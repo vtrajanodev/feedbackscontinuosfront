@@ -26,6 +26,10 @@
   flex-direction: column;
 }
 
+.signIn img {
+  width: 100px;
+}
+
 .registerForm {
   width: 60%;
   background-color: var(--white);
@@ -89,6 +93,8 @@
 
 .buttonSubmit {
   display: flex;
+  width: 400px;
+  justify-content: center;
 }
 
 .buttonSubmit button {
