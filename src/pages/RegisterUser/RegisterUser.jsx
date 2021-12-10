@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik';
-import styles from './registerUser.module.css';
+import styles from '../styles/loginAndRegister.module.css';
 
 
 
