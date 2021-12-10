@@ -11,10 +11,10 @@ export const RegisterUser = () => {
     <div className={styles.registerUserContainer}>
       <Formik
         initialValues={{
-          name: '',
+          nome: '',
           email: '',
-          password: '',
-          picture: '' 
+          senha: '',
+          urlImagem: '' 
         }}
         onSubmit={async (
           values,
@@ -35,7 +35,7 @@ export const RegisterUser = () => {
               <div className={styles.registerForm}>
                 <h1>Faça seu cadastro</h1>
                 <div>
-                  <Field id="name" name="name" placeholder="Nome completo" />
+                  <Field id="nome" name="nome" placeholder="Nome completo" />
                 </div>
 
                 <div>
@@ -43,12 +43,12 @@ export const RegisterUser = () => {
                 </div>
 
                 <div>
-                  <Field id="password" name="password" placeholder="Senha" />
+                  <Field id="senha" name="senha" placeholder="Senha" />
                 </div>
 
                 <div className={styles.fileLabel}>
-                  <label htmlFor="picture">Imagem de perfil</label>
-                  <Field type="file" id="picture" name="picture" placeholder="email@exemplo.com" />
+                  <label htmlFor="urlImagem">Imagem de perfil</label>
+                  <Field type="file" id="urlImagem" name="urlImagem" placeholder="email@exemplo.com" />
                 </div>
                 <div className={styles.buttonSubmit}>
                   <button type="submit">Cadastrar</button>
