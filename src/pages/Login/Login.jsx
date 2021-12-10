@@ -1,14 +1,16 @@
 import { Formik, Field, Form } from 'formik';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../../images/logo.png';
 // import { useContext } from 'react';
 // import { AuthContext } from '../context/AuthContext';
 import styles from '../styles/loginAndRegister.module.css';
 
 export const Login = () => {
+
   const { handleLogin } = useContext(AuthContext)
+  const navigate = useNavigate()
   return (
     <div className={styles.registerUserContainer}>
       <Formik
@@ -23,7 +25,14 @@ export const Login = () => {
         <Form>
           <div className={styles.content}>
             <div className={styles.signIn}>
-              <img src={Logo} alt="logo" />
+              <div>
+                <img src={Logo} alt="logo" />
+              </div>
+              <div>
+                  <h3>Sistema de Feedback Continuo da DBC Company</h3>
+                  <p>Não possui cadastro?</p>
+                  <button onClick={() => navigate('/cadastro-usuario')}>Clique aqui e faça seu cadastro</button>
+                </div>
             </div>
             <div className={styles.registerForm}>
               <h1>Login</h1>
@@ -34,9 +43,7 @@ export const Login = () => {
               <div>
                 <Field id="senha" name="senha" placeholder="Senha: " />
               </div>
-
               <div>
-                <Link to="/cadastro-usuario">Não possuo cadastro</Link>
               </div>
               <div className={styles.buttonSubmit}>
                 <button type="submit">Login</button>

@@ -24,10 +24,36 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  color: var(--white);
 }
 
-.signIn img {
-  width: 100px;
+.signIn div:nth-child(2) {
+  display: flex;
+  margin-top: 6rem;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.signIn div:nth-child(2) p {
+  margin-top: 2rem;
+}
+
+.signIn div button {
+  margin-top: 1rem;
+  height: 30px;
+  background-color: var(--white);
+  border: none;
+  border-radius: .25rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: rgb(87, 87, 87);
+}
+
+.signIn button:hover {
+  filter: brightness(0.9);
 }
 
 .registerForm {
@@ -41,7 +67,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .registerForm h1 {
   text-align: center;
@@ -60,18 +85,27 @@
   background-color:  #ecf0f1;
   padding-left: 10px;
   margin: 0 auto;
+  display: block;
+  margin-bottom: 2px;
 }
 
 .registerForm input::placeholder {
   font-weight: 600;
 }
 
-.registerForm div:nth-child(5) {
+.registerForm div:nth-child(6) {
   margin-left: 3.4rem;
 }
 
-.registerForm div:nth-child(2) {
-  margin-top: 3rem;
+.strengthStatus {
+  border: 1px solid #b4b4b4;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+  font-size: 10px;
+  border-radius: .25rem;
+  margin: 5px 0;
+  
 }
 
 .fileLabel label{
@@ -109,4 +143,8 @@
   cursor: pointer;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.buttonSubmit button:hover {
+  filter: brightness(0.9);
 }
