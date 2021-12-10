@@ -1,4 +1,6 @@
 import { Formik, Field, Form } from 'formik';
+import { Link } from 'react-router-dom';
+import Logo from '../../images/logo.png';
 // import { useContext } from 'react';
 // import { AuthContext } from '../context/AuthContext';
 import styles from '../styles/loginAndRegister.module.css';
@@ -18,7 +20,7 @@ export const Login = () => {
       <Form>
       <div className={styles.content}>
           <div className={styles.signIn}>
-            <h1>Login</h1>
+            <img src={Logo} alt="logo" />
           </div>
 
         <div className={styles.registerForm}>
@@ -29,6 +31,10 @@ export const Login = () => {
 
           <div>
             <Field id="password" name="password" placeholder="Senha: " />
+          </div>
+          
+          <div>
+            <Link to="/cadastro-usuario">Não possuo cadastro</Link>
           </div>
 
           <div className={styles.buttonSubmit}>
