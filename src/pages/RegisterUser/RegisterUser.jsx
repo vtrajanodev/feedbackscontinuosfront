@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import Logo from '../../images/logo.png'
 import styles from '../styles/loginAndRegister.module.css';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components/Button/Button';
 
 export const RegisterUser = () => {
 
@@ -96,7 +95,7 @@ export const RegisterUser = () => {
                   <Field type="file" id="urlImagem" name="urlImagem" placeholder="email@exemplo.com" />
                 </div>
                 <div className={styles.buttonSubmit}>
-                  <Button onClick={() => navigate('/')}>Login</Button>
+                  <button type="submit">Cadastrar</button>
                 </div>
               </div>
             </div>
