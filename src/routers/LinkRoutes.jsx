@@ -22,7 +22,7 @@ export const LinkRoutes = () => {
               <Navigate to="/home" />
               :
               <Login />
-          } /> 
+          } />
         <Route path="/cadastro-usuario" element={<RegisterUser />} />
         <Route path="/home" element=
           {

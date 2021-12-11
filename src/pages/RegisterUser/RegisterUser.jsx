@@ -6,10 +6,12 @@ import * as Yup from 'yup';
 import Logo from '../../images/logo.png'
 import styles from '../styles/loginAndRegister.module.css';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 
 export const RegisterUser = () => {
 
   const { handleRegisterEmployee } = useContext(EmployeeContext)
+  const { handleLogin } = useContext(AuthContext)
   const navigate = useNavigate()
 
   // const validateSchema = Yup.object().shape({
@@ -44,7 +46,12 @@ export const RegisterUser = () => {
           values,
           { setSubmitting }
         ) => {
+          const login = {
+            email: values.email,
+            senha: values.senha
+          }
           await handleRegisterEmployee(values)
+          await handleLogin(login)
           setSubmitting(false);
         }}
       >
