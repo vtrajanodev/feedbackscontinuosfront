@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CardFeedbackEnviado } from '../../components/CardFeedbackEnviado/CardFeedbackEnviado'
 import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
 import { AuthContext } from '../../context/AuthContext'
 import { FeedbackContext } from '../../context/FeedbackContext'
@@ -9,7 +10,7 @@ import styles from './home.module.css'
 export const Home = () => {
 
   const { employee } = useContext(AuthContext)
-  const { feedbacksRecebidos } = useContext(FeedbackContext)
+  const { feedbacksRecebidos, feedbacksEnviados } = useContext(FeedbackContext)
 
 
   return (
@@ -30,7 +31,9 @@ export const Home = () => {
         </nav>
       </div>
 
-      <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo}/>
+      <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
+      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo}/>
+
     </main>
   )
 }

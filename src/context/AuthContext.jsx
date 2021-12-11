@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 
 export const AuthContext = createContext()
@@ -8,11 +8,11 @@ export const AuthContextProvider = ({ children }) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const navigate = useNavigate()
+  const token = localStorage.getItem('token')
 
   const [employee, setEmployee] = useState({
     nome: '',
     email: '',
-    id: null
   })
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export const AuthContextProvider = ({ children }) => {
     return logout
   }
   return (
-    <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout, setIsAuthenticated, employee }}>
+    <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout, setIsAuthenticated, employee, token }}>
       {children}
     </AuthContext.Provider>
   );

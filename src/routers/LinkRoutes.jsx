@@ -1,31 +1,38 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { RegisterUser } from '../pages/RegisterUser/RegisterUser';
 import { Login } from '../pages/Login/Login';
-import { EmployeeContextProvider } from "../context/EmployeeContext";
-import { AuthContextProvider } from "../context/AuthContext";
 import { Header } from "../components/Header/Header";
 import { Home } from "../pages/Home/Home";
-import { FeedbackContextProvider } from "../context/FeedbackContext";
 import { NotFound } from "../pages/NotFound/NotFound";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 
 
 export const LinkRoutes = () => {
+
+  const { token } = useContext(AuthContext)
+
   return (
-    <BrowserRouter>
-      <AuthContextProvider>
-        <EmployeeContextProvider>
-          <FeedbackContextProvider>
-            <Header />
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/cadastro-usuario" element={<RegisterUser />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </FeedbackContextProvider>
-        </EmployeeContextProvider>
-      </AuthContextProvider>
-    </BrowserRouter>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/login" element={
+            token ?
+              <Navigate to="/home" />
+              :
+              <Login />
+          } /> 
+        <Route path="/cadastro-usuario" element={<RegisterUser />} />
+        <Route path="/home" element=
+          {
+            !token ?
+              <Navigate to="/login" />
+              :
+              <Home />
+          } />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   )
 }
