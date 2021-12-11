@@ -9,7 +9,7 @@ import styles from './home.module.css'
 export const Home = () => {
 
   const { employee } = useContext(AuthContext)
-  const { feedbacksRecebidos } = useContext(FeedbackContext)
+  const { feedbacksRecebidos, feedbacksEnviados } = useContext(FeedbackContext)
 
 
   return (
@@ -31,6 +31,29 @@ export const Home = () => {
       </div>
 
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo}/>
+
+      <section className={styles.cardsList}>
+        <h1>Feedbacks enviados</h1>
+        {feedbacksEnviados.map(feedback => (
+          <div key={feedback.idFeedback}>
+            <div className={styles.card}>
+              <div>
+                <img src={logo} alt="Imagem perfil card" />
+              </div>
+              <div>
+                <div className={styles.cardTitle}>
+                  <h3>{feedback.funcionarioOrigem.nome}</h3>
+                  <span>{feedback.dataFeedback}</span>
+                </div>
+                <div className={styles.cardContent}>
+                  <p>{feedback.conteudo}</p>
+                  <button>Tornar invisivel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
     </main>
   )
 }
