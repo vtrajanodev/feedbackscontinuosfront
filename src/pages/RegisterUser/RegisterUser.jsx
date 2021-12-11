@@ -1,4 +1,5 @@
 import { Field, Form, Formik } from 'formik';
+import PasswordStrengthBar from 'react-password-strength-bar';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../context/EmployeeContext';
 import * as Yup from 'yup';
@@ -82,6 +83,7 @@ export const RegisterUser = () => {
                   {(props.errors.senha && props.touched.senha) && (
                     <span>{props.errors.senha}</span>
                   )}
+                <PasswordStrengthBar style={{ width: '200px'}} password={props.values.senha} />
                 </div>
                 <div>
                   <Field id="senhaConfirm" name="senhaConfirm" placeholder="Confirmação de senha" />

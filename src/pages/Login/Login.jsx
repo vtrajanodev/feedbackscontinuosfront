@@ -27,9 +27,8 @@ export const Login = () => {
                 <img src={Logo} alt="logo" />
               </div>
               <div>
-                  <h3>Sistema de Feedback Continuo da DBC Company</h3>
-                  <p>Não possui cadastro?</p>
-                  <button onClick={() => navigate('/cadastro-usuario')}>Clique aqui e faça seu cadastro</button>
+                  <h3>Sistema de Feedbacks Contínuos</h3>
+                  <button onClick={() => navigate('/cadastro-usuario')}>Não possui cadastro?</button>
                 </div>
             </div>
             <div className={styles.registerForm}>
