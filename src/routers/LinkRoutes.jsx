@@ -5,6 +5,7 @@ import { EmployeeContextProvider } from "../context/EmployeeContext";
 import { AuthContextProvider } from "../context/AuthContext";
 import { Header } from "../components/Header/Header";
 import { Home } from "../pages/Home/Home";
+import { FeedbackContextProvider } from "../context/FeedbackContext";
 
 
 export const LinkRoutes = () => {
@@ -12,12 +13,14 @@ export const LinkRoutes = () => {
     <BrowserRouter>
       <AuthContextProvider>
         <EmployeeContextProvider>
-          <Header />
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro-usuario" element={<RegisterUser />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
+          <FeedbackContextProvider>
+            <Header />
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro-usuario" element={<RegisterUser />} />
+              <Route path="/home" element={<Home />} />
+            </Routes>
+          </FeedbackContextProvider>
         </EmployeeContextProvider>
       </AuthContextProvider>
     </BrowserRouter>

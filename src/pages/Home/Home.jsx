@@ -1,13 +1,17 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
 import { AuthContext } from '../../context/AuthContext'
+import { FeedbackContext } from '../../context/FeedbackContext'
 import logo from '../../images/img.jpg'
 import styles from './home.module.css'
 
 export const Home = () => {
 
   const { employee } = useContext(AuthContext)
-  
+  const { feedbacksRecebidos } = useContext(FeedbackContext)
+
+
   return (
     <main>
       <div className={styles.mainHeader}>
@@ -26,32 +30,7 @@ export const Home = () => {
         </nav>
       </div>
 
-      <section className={styles.cardsList}>
-        <h1>Feedbacks recebidos</h1>
-        <div className={styles.card}>
-          <div>
-            <img src={logo} alt="Imagem perfil card" />
-          </div>
-          <div className={styles.cardContent}>
-            <h3>{employee.nome}</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem delectus facere, sed porro ratione sint at iusto sequi minima autem.</p>
-          </div>
-        </div>
-
-        <div className={styles.card}>
-          <div>
-            <img src={logo} alt="Imagem perfil card" />
-          </div>
-          <div className={styles.cardContent}>
-            <div>
-              <h3>{employee.nome}</h3>
-            </div>
-            <div>
-            </div>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem delectus facere, sed porro ratione sint at iusto sequi minima autem.</p>
-          </div>
-        </div>
-      </section>
+      <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo}/>
     </main>
   )
 }

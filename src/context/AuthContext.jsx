@@ -12,6 +12,7 @@ export const AuthContextProvider = ({ children }) => {
   const [employee, setEmployee] = useState({
     nome: '',
     email: '',
+    id: null
   })
 
   useEffect(() => {
@@ -43,7 +44,8 @@ export const AuthContextProvider = ({ children }) => {
       const { data } = await api.get('/funcionario/usuario')
       setEmployee({
         nome: data.nome,
-        email: data.email
+        email: data.email,
+        id: data.idFuncionario
       })
     } catch (err) {
       console.log(err)
