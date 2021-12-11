@@ -16,7 +16,7 @@ export const Home = () => {
     <main>
       <div className={styles.mainHeader}>
         <div>
-          Ola {employee.nome} Bem vindo!
+          Ola {employee.nome}, seja bem vindo!
         </div>
         <nav>
           <ul>

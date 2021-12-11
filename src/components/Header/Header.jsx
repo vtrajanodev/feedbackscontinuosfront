@@ -6,6 +6,7 @@ import styles from './header.module.css'
 
 export const Header = () => {
 
+  const { employee } = useContext(AuthContext)
   const { isAuthenticated, handleLogout } = useContext(AuthContext)
 
   return (
@@ -16,7 +17,7 @@ export const Header = () => {
             <img src={imgPerfil} alt="Imagem de perfil" />
           </Link>
           <span>
-            Nome do usuario
+            {employee.nome}
           </span>
           <Link to="/login" onClick={handleLogout}>
             Logout
