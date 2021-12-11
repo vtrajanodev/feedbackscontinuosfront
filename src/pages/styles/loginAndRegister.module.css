@@ -18,7 +18,8 @@
 .signIn {
   width: 40%;
   background: linear-gradient(
-    90deg, #1A75C1 0%, #54B14C 55.73%, #A3E49D 100%);;
+    90deg, #1A75C1 0%, #54B14C 55.73%, #A3E49D 100%);
+  opacity: 0.8;
   padding: 2rem;
   border-radius: 1rem 0 0 1rem;
   height: 100%;
@@ -43,6 +44,7 @@
 
 .signIn div button {
   margin-top: 1rem;
+  width: 200px;
   height: 30px;
   background-color: var(--white);
   border: none;

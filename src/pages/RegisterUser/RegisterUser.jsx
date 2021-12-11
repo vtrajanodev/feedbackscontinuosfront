@@ -12,22 +12,22 @@ export const RegisterUser = () => {
   const { handleRegisterEmployee } = useContext(EmployeeContext)
   const navigate = useNavigate()
 
-  const validateSchema = Yup.object().shape({
-    nome: Yup.string()
-      .min(10, 'Nome muito curto!')
-      .max(55, 'Campo com máximo de 55 caracteres')
-      .required('Nome é um campo obrigatório'),
-    email: Yup.string()
-      .min(10, 'Email muito curto')
-      .max(70, 'Email muito longo')
-      .matches(/@dbccompany\.com.br$/, 'Dominio @dbccompany.com.br obrigatório')
-      .required('Email é um campo obrigatório'),
-    senha: Yup.string()
-      .min(8, 'A senha deve conter pelo menos 8 caracteres')
-      .required('Senha é um campo obrigatório'),
-    senhaConfirm: Yup.string()
-      .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
-  });
+  // const validateSchema = Yup.object().shape({
+  //   nome: Yup.string()
+  //     .min(10, 'Nome muito curto!')
+  //     .max(55, 'Campo com máximo de 55 caracteres')
+  //     .required('Nome é um campo obrigatório'),
+  //   email: Yup.string()
+  //     .min(10, 'Email muito curto')
+  //     .max(70, 'Email muito longo')
+  //     .matches(/@dbccompany\.com.br$/, 'Dominio @dbccompany.com.br obrigatório')
+  //     .required('Email é um campo obrigatório'),
+  //   senha: Yup.string()
+  //     .min(8, 'A senha deve conter pelo menos 8 caracteres')
+  //     .required('Senha é um campo obrigatório'),
+  //   senhaConfirm: Yup.string()
+  //     .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
+  // });
 
   return (
     <div className={styles.registerUserContainer}>
@@ -39,7 +39,7 @@ export const RegisterUser = () => {
           urlImagem: '',
           senhaConfirm: ''
         }}
-        validationSchema={validateSchema}
+        // validationSchema={validateSchema}
         onSubmit={async (
           values,
           { setSubmitting }
