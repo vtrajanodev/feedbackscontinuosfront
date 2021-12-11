@@ -6,6 +6,8 @@ import { AuthContextProvider } from "../context/AuthContext";
 import { Header } from "../components/Header/Header";
 import { Home } from "../pages/Home/Home";
 import { FeedbackContextProvider } from "../context/FeedbackContext";
+import { NotFound } from "../pages/NotFound/NotFound";
+
 
 
 export const LinkRoutes = () => {
@@ -19,6 +21,7 @@ export const LinkRoutes = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/cadastro-usuario" element={<RegisterUser />} />
               <Route path="/home" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </FeedbackContextProvider>
         </EmployeeContextProvider>
