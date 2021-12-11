@@ -44,6 +44,7 @@ main a {
   align-items: center;
   justify-content: flex-start;
   background-color: #dddddd;
+  box-shadow: 2px 1px 5px 0 black;
 }
 
 .card h3 {
