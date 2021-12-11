@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CardFeedbackEnviado } from '../../components/CardFeedbackEnviado/CardFeedbackEnviado'
 import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
 import { AuthContext } from '../../context/AuthContext'
 import { FeedbackContext } from '../../context/FeedbackContext'
@@ -30,30 +31,9 @@ export const Home = () => {
         </nav>
       </div>
 
-      <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo}/>
+      <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
+      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo}/>
 
-      <section className={styles.cardsList}>
-        <h1>Feedbacks enviados</h1>
-        {feedbacksEnviados.map(feedback => (
-          <div key={feedback.idFeedback}>
-            <div className={styles.card}>
-              <div>
-                <img src={logo} alt="Imagem perfil card" />
-              </div>
-              <div>
-                <div className={styles.cardTitle}>
-                  <h3>{feedback.funcionarioOrigem.nome}</h3>
-                  <span>{feedback.dataFeedback}</span>
-                </div>
-                <div className={styles.cardContent}>
-                  <p>{feedback.conteudo}</p>
-                  <button>Tornar invisivel</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </section>
     </main>
   )
 }
