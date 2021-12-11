@@ -17,7 +17,12 @@ export const LinkRoutes = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={
+            token ?
+              <Navigate to="/home" />
+              :
+              <Login />
+          } /> 
         <Route path="/cadastro-usuario" element={<RegisterUser />} />
         <Route path="/home" element=
           {
