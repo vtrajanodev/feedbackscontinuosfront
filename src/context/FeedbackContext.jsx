@@ -12,8 +12,8 @@ export const FeedbackContextProvider = ({ children }) => {
     const token = localStorage.getItem('token')
     if (token) {
       api.defaults.headers.common['Authorization'] = token
+      getFeedbacksRecebidos()
     }
-    getFeedbacksRecebidos()
   }, [])
 
   const getFeedbacksRecebidos = async () => {

@@ -20,8 +20,8 @@ export const AuthContextProvider = ({ children }) => {
     if (token) {
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
+      getEmployeeInfos()
     }
-    getEmployeeInfos()
   }, [])
 
   const handleLogin = async (employee) => {
