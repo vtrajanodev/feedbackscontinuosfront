@@ -17,7 +17,7 @@
 
 .signIn {
   width: 40%;
-  background-color: var(--light-green);
+  background-color:#1A75C1;
   padding: 2rem;
   border-radius: 1rem 0 0 1rem;
   height: 100%;
@@ -70,7 +70,7 @@
 .registerForm h1 {
   text-align: center;
   margin-bottom: 1rem;
-  color: var(--light-green);
+  color: #1A75C1;
 }
 
 .registerForm div {
@@ -134,7 +134,7 @@
   padding: .5rem;
   border-radius: 1rem;
   width: 200px;
-  background-color: var(--light-green);
+  background-color: #1A75C1;
   color: var(--white);
   border: none;
   margin-top: 2rem;
