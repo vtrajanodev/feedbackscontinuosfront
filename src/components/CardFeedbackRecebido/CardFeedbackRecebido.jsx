@@ -2,8 +2,8 @@
 export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
   return (
     <>
-      <h1>Feedbacks recebidos</h1>
       <section className={styles.cardsList}>
+        <h1>Feedbacks recebidos</h1>
         {feedbacksRecebidos.map(feedback => (
           <div key={feedback.idFeedback}>
             <div className={styles.card}>
