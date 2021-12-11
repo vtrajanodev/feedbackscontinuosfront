@@ -6,6 +6,7 @@ import { Home } from "../pages/Home/Home";
 import { NotFound } from "../pages/NotFound/NotFound";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
 
 
 
@@ -31,6 +32,7 @@ export const LinkRoutes = () => {
               :
               <Home />
           } />
+        <Route path="/enviar-feedback" element={<SendFeedback />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

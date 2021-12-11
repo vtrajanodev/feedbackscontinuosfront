@@ -24,7 +24,7 @@ export const Home = () => {
             <Link to="/home">
               <li>Página principal</li>
             </Link>
-            <Link to="/feedback">
+            <Link to="/enviar-feedback">
               <li>Enviar feedback</li>
             </Link>
           </ul>
