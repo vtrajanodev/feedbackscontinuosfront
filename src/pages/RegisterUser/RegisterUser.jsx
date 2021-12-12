@@ -87,10 +87,10 @@ export const RegisterUser = () => {
                 </div>
                 <div>
                   <Field id="senha" name="senha" placeholder="Senha" />
+                  <PasswordStrengthBar password={props.values.senha} className={styles.bar} shortScoreWord={'Muito pequena'} scoreWords={['fraca', 'moderada', 'forte', 'ideal']} minLength={3} scoreWordClassName='strong' />
                   {(props.errors.senha && props.touched.senha) && (
                     <span>{props.errors.senha}</span>
                   )}
-                <PasswordStrengthBar style={{ width: '200px'}} password={props.values.senha} />
                 </div>
                 <div>
                   <Field id="senhaConfirm" name="senhaConfirm" placeholder="Confirmação de senha" />

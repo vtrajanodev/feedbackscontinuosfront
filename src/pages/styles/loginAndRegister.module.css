@@ -150,3 +150,12 @@
 .buttonSubmit button:hover {
   filter: brightness(0.9);
 }
+
+.bar {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 400px;
+  justify-content: flex-end;
+  align-self: flex-start ;
+  text-align: left;
+}
