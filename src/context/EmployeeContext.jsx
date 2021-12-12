@@ -30,7 +30,8 @@ export const EmployeeContextProvider = ({ children }) => {
   }
 
   const getEmployee = async () => {
-    const { data } = await api.get('/')
+    const { data } = await api.get('/funcionario/funcionarios')
+    console.log(data)
     setEmployeeList(data)
   }
 
