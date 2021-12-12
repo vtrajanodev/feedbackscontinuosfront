@@ -46,6 +46,17 @@ section.sendFeedbackContainer {
   color: #1A75C1;
 }
 
+.cardContent button {
+  cursor: pointer;
+  height: 30px;
+  width: 200px;
+  background-color: rgba(26, 117, 193, 0.1);
+  border-radius: 1rem;
+  border: none;
+  color: #1A75C1;
+  font-weight: 600;
+}
+
 .cardContent p {
   color: rgb(163, 163, 163);
 }
