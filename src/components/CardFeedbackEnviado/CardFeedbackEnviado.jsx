@@ -1,5 +1,3 @@
-import { format, compareAsc, parseISO } from 'date-fns'
-
 
 export const CardFeedbackEnviado = ({ styles, feedbacksEnviados, logo }) => {
   return (
