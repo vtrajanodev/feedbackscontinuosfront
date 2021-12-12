@@ -14,20 +14,19 @@ export const SendFeedback = () => {
       </div>
 
       <div className={styles.cardList}>
-      <h1>Feedbacks recebidos</h1>
+        <h1>Enviar feedback</h1>
         {employeeList.map(employee => (
           <div key={employee.idFuncionario}>
             <div className={styles.card}>
               <div>
                 <img src={logo} alt="Imagem perfil card" />
               </div>
-              <div>
-                <div className={styles.cardTitle}>
+              <div className={styles.cardContent}>
+                <div>
                   <h3>{employee.nome}</h3>
-                  {/* <span>{employee.dataemployee}</span> */}
+                  <p>{employee.email}</p>
                 </div>
-                <div className={styles.cardContent}>
-                  <p>{employee.conteudo}</p>
+                <div>
                   <button>Enviar um feedback</button>
                 </div>
               </div>

@@ -1,8 +1,9 @@
-div.sendFeedbackContainer {
+section.sendFeedbackContainer {
   max-width: 1120px;
-  background-color: #1A75C10D;
+  background-color: #228de421;
   margin: 0 auto;
-  height: 600px;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
 
@@ -28,10 +29,23 @@ div.sendFeedbackContainer {
   align-items: center;
   background-color: var(--white);
   box-shadow: 2px 1px 5px 0 rgb(175, 175, 175);
-  flex: 1;
 }
 
 .card img {
   width: 50px;
   border-radius: 100%;
+  margin-left: 2rem;
+}
+
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center ;
+  width: 700px;
+  margin: 0 auto;
+  color: #1A75C1;
+}
+
+.cardContent p {
+  color: rgb(163, 163, 163);
 }
