@@ -62,6 +62,10 @@ export const CardSendFeedback = ({ styles }) => {
                         <option value="tag4">Tag4</option>
                       </select>
                     </div>
+
+                    <div>
+                      <textarea name="feedbackTextArea" id="feedbackTextArea" cols="100" rows="5"></textarea>
+                    </div>
                   </div>
                 </Modal>
               </div>
