@@ -8,6 +8,8 @@ export const FeedbackContextProvider = ({ children }) => {
 
   const [feedbacksRecebidos, setFeedbacksRecebidos] = useState([])
   const [feedbacksEnviados, setFeedbacksEnviados] = useState([])
+  const [tagsList, setTagsList] = useState([])
+
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -15,6 +17,7 @@ export const FeedbackContextProvider = ({ children }) => {
       api.defaults.headers.common['Authorization'] = token
       getFeedbacksRecebidos()
       getFeedbacksEnviados()
+      getTags()
     }
   }, [])
 
@@ -30,9 +33,27 @@ export const FeedbackContextProvider = ({ children }) => {
     setFeedbacksEnviados(data)
   }
 
- 
+  const getTags = async () => {
+    const { data } = await api.get('/tags/lista-tags')
+    console.log(data)
+    setTagsList(data)
+  }
+
+  const postFeedback = async (values) => {
+    console.log(values)
+    try {
+      const { data } = await api.post('/feedbacks/postar', values)
+      console.log(data)
+    } catch (err) {
+      console.log('deu erro =>' + err)
+      console.log(values)
+
+    }
+  }
+
+
   return (
-    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados }}>
+    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados, tagsList, postFeedback }}>
       {children}
     </FeedbackContext.Provider>
   );

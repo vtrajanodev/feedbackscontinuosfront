@@ -62,7 +62,7 @@ section.sendFeedbackContainer {
 }
 
 .reactModalOverlay{
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -135,6 +135,7 @@ section.sendFeedbackContainer {
   border: 1px solid #1A75C1;
   border-radius: .25rem;
   outline: 1px solid #1A75C1;
+  padding-left: 5px;
 }
 
 .feedbackContent button {
