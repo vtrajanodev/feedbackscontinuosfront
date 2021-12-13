@@ -22,7 +22,6 @@ export const EmployeeContextProvider = ({ children }) => {
   const handleRegisterEmployee = async (employee) => {
     try {
       const response = await api.post('/funcionario/cadastro', employee)
-      navigate('/login')
       console.log(response.data)
     } catch (err) {
       console.log(err)

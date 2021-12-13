@@ -44,10 +44,11 @@ export const FeedbackContextProvider = ({ children }) => {
     try {
       const { data } = await api.post('/feedbacks/postar', values)
       console.log(data)
+      alert('Feedback enviado com sucesso!')
+      window.location.href = '/home'
     } catch (err) {
       console.log('deu erro =>' + err)
       console.log(values)
-
     }
   }
 

@@ -28,7 +28,7 @@ export const Login = () => {
               </div>
               <div>
                   <h3>Sistema de Feedbacks Contínuos</h3>
-                  <button onClick={() => navigate('/cadastro-usuario')}>Não possui cadastro?</button>
+                  <button onClick={navigate('/cadastro-usuario')}>Não possui cadastro?</button>
                 </div>
             </div>
             <div className={styles.registerForm}>

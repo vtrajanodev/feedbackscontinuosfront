@@ -13,7 +13,7 @@ export const CardFeedbackEnviado = ({ styles, feedbacksEnviados, logo }) => {
               <div>
                 <div className={styles.cardTitle}>
                   <h3>{feedback.funcionarioOrigem.nome}</h3>
-                  <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'long' }).format(
+                  <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
                     new Date(feedback.dataFeedback)
                   )}</span>
                 </div>

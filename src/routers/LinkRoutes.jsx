@@ -3,7 +3,6 @@ import { RegisterUser } from '../pages/RegisterUser/RegisterUser';
 import { Login } from '../pages/Login/Login';
 import { Header } from "../components/Header/Header";
 import { Home } from "../pages/Home/Home";
-import { NotFound } from "../pages/NotFound/NotFound";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
@@ -33,7 +32,12 @@ export const LinkRoutes = () => {
               <Home />
           } />
         <Route path="/enviar-feedback" element={<SendFeedback />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={
+            !token ?
+              <Navigate to="/login" />
+              :
+              <Navigate to="/home" />
+          } />
       </Routes>
     </>
   )

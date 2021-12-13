@@ -11,12 +11,8 @@ Modal.setAppElement('#root')
 export const CardSendFeedback = ({ styles }) => {
 
   const [targetEmployee, setTargetEmployee] = useState()
-
   const { employeeList } = useContext(EmployeeContext)
-
   const { tagsList, postFeedback } = useContext(FeedbackContext)
-
-
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleOpenNewSendFeedbackModal = (employee) => {
@@ -61,6 +57,7 @@ export const CardSendFeedback = ({ styles }) => {
 
         <Formik
           initialValues={{
+            anonimo: false,
             conteudo: '',
             listaTags: [
               {
@@ -75,6 +72,7 @@ export const CardSendFeedback = ({ styles }) => {
             { setSubmitting }
           ) => {
             await postFeedback({ ...values, idFuncionarioDestino: targetEmployee.idFuncionario })
+            handleCloseNewSendFeedbackModal()
             setSubmitting(false);
           }}
         >
