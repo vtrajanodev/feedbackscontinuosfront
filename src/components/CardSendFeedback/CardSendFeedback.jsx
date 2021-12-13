@@ -3,21 +3,29 @@ import { useState } from "react"
 import { EmployeeContext } from "../../context/EmployeeContext"
 import Modal from 'react-modal'
 import logo from '../../images/img.jpg'
+import { Field, Form, Formik } from "formik"
+import { FeedbackContext } from "../../context/FeedbackContext"
 
 Modal.setAppElement('#root')
 
 export const CardSendFeedback = ({ styles }) => {
 
   const { employeeList } = useContext(EmployeeContext)
+  const { tagsList, postFeedback } = useContext(FeedbackContext)
+
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleOpenNewSendFeedbackModal = () => {
     setIsModalOpen(true)
+
   }
 
   const handleCloseNewSendFeedbackModal = () => {
     setIsModalOpen(false)
+  }
+
+  const handleGeEmployeeId = (event) => {
 
   }
 
@@ -37,52 +45,63 @@ export const CardSendFeedback = ({ styles }) => {
               </div>
               <div>
                 <button onClick={handleOpenNewSendFeedbackModal} >Enviar um feedback</button>
-
-                <Modal
-                  isOpen={isModalOpen}
-                  onRequestClose={handleCloseNewSendFeedbackModal}
-                  overlayClassName={styles.reactModalOverlay}
-                  className={styles.reactModalContent}
-                >
-                  <h4>Envie o seu feedback para nomeDoUsuario</h4>
-
-                  <form>
-                    <div className={styles.feedbackInfo}>
-                      <p>
-                        Envie elogios ou criticas construtivas que possam auxiliar na evolução do desempenho de seus colegas.
-                      </p>
-                    </div>
-                    <div className={styles.feedbackContent}>
-                      <p>Selecione o tipo do seu feedback</p>
-
-                      <div className={styles.feedbackType}>
-                        <span>Icone</span>
-                        <span>Icone</span>
-                      </div>
-
-                      <div>
-                        <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
-                        <select name="feedbackTags" id="feedbackTags">
-                          <option value="tag1">Tag1</option>
-                          <option value="tag2">Tag2</option>
-                          <option value="tag3">Tag3</option>
-                          <option value="tag4">Tag4</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <textarea name="feedbackTextArea" id="feedbackTextArea"></textarea>
-                      </div>
-                      <button type="submit">Enviar</button>
-                    </div>
-
-                  </form>
-                </Modal>
               </div>
             </div>
           </div>
         </div>
       ))}
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={handleCloseNewSendFeedbackModal}
+        overlayClassName={styles.reactModalOverlay}
+        className={styles.reactModalContent}
+      >
+        <h4>Envie o seu feedback para nomeDoUsuario</h4>
+
+        <Formik
+          initialValues={{
+            conteudo: '',
+            tipoDeFeedback: '',
+            tags: {},
+            visivel: true,
+            idFuncionarioDestino: ''
+          }}
+          // validationSchema={validateSchema}
+          onSubmit={async (
+            values,
+            { setSubmitting }
+          ) => {
+            await postFeedback(values)
+            setSubmitting(false);
+          }}
+        >
+          {props => (
+            <Form>
+              <div className={styles.feedbackInfo}>
+                <p>
+                  Envie elogios ou criticas construtivas que possam auxiliar na evolução do desempenho de seus colegas.
+                </p>
+              </div>
+              <div className={styles.feedbackContent}>
+
+                <div>
+                  <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
+                  <Field as="select" name="feedbackTags" id="feedbackTags">
+                    {tagsList.map(tag => (
+                      <option name={tag.idTag} key={tag.idTag}>{tag.nomeTag}</option>
+                    ))}
+                  </Field>
+                </div>
+
+                <div>
+                  <Field as="textarea" name="conteudo" id="conteudo"></Field>
+                </div>
+                <button type="submit">Enviar</button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </Modal>
     </div>
   )
 }

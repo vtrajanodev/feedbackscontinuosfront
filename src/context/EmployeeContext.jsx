@@ -35,6 +35,8 @@ export const EmployeeContextProvider = ({ children }) => {
     setEmployeeList(data)
   }
 
+ 
+
   return (
     <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList }}>
       {children}
