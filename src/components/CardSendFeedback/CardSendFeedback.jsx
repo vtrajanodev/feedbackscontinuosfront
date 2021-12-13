@@ -10,23 +10,23 @@ Modal.setAppElement('#root')
 
 export const CardSendFeedback = ({ styles }) => {
 
+  const [targetEmployee, setTargetEmployee] = useState()
+
   const { employeeList } = useContext(EmployeeContext)
+
   const { tagsList, postFeedback } = useContext(FeedbackContext)
 
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleOpenNewSendFeedbackModal = () => {
+  const handleOpenNewSendFeedbackModal = (employee) => {
+    setTargetEmployee(employee)
     setIsModalOpen(true)
-
+    console.log(employee)
   }
 
   const handleCloseNewSendFeedbackModal = () => {
     setIsModalOpen(false)
-  }
-
-  const handleGeEmployeeId = (event) => {
-
   }
 
   return (
@@ -44,12 +44,13 @@ export const CardSendFeedback = ({ styles }) => {
                 <p>{employee.email}</p>
               </div>
               <div>
-                <button onClick={handleOpenNewSendFeedbackModal} >Enviar um feedback</button>
+                <button onClick={() => handleOpenNewSendFeedbackModal(employee)} >Enviar um feedback</button>
               </div>
             </div>
           </div>
         </div>
       ))}
+
       <Modal
         isOpen={isModalOpen}
         onRequestClose={handleCloseNewSendFeedbackModal}
@@ -61,17 +62,19 @@ export const CardSendFeedback = ({ styles }) => {
         <Formik
           initialValues={{
             conteudo: '',
-            tipoDeFeedback: '',
-            tags: {},
+            listaTags: [
+              {
+                idTag: 1
+              }
+            ],
             visivel: true,
-            idFuncionarioDestino: ''
           }}
           // validationSchema={validateSchema}
           onSubmit={async (
             values,
             { setSubmitting }
           ) => {
-            await postFeedback(values)
+            await postFeedback({ ...values, idFuncionarioDestino: targetEmployee.idFuncionario })
             setSubmitting(false);
           }}
         >

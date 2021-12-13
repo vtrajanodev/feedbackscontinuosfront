@@ -13,7 +13,9 @@ export const CardFeedbackEnviado = ({ styles, feedbacksEnviados, logo }) => {
               <div>
                 <div className={styles.cardTitle}>
                   <h3>{feedback.funcionarioOrigem.nome}</h3>
-                  <span>{feedback.dataFeedback}</span>
+                  <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'long' }).format(
+                    new Date(feedback.dataFeedback)
+                  )}</span>
                 </div>
                 <div className={styles.cardContent}>
                   <p>{feedback.conteudo}</p>

@@ -40,11 +40,14 @@ export const FeedbackContextProvider = ({ children }) => {
   }
 
   const postFeedback = async (values) => {
+    console.log(values)
     try {
       const { data } = await api.post('/feedbacks/postar', values)
       console.log(data)
     } catch (err) {
       console.log('deu erro =>' + err)
+      console.log(values)
+
     }
   }
 
