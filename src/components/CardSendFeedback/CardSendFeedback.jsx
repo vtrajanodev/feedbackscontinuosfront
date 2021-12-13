@@ -41,7 +41,28 @@ export const CardSendFeedback = ({ styles }) => {
                   isOpen={isModalOpen}
                   onRequestClose={handleCloseNewSendFeedbackModal}
                 >
-                  <h2>Oi sou um modal</h2>
+                  <h3>Envie o seu feedback para nomeDoUsuario</h3>
+
+                  <div className={styles.feedbackInfo}>
+                    Envie elogios ou criticas construtivas que possam auxiliar na evolução do desempenho de seus colegas.
+                  </div>
+                  <div className={styles.feedbackContent}>
+                    <p>Selecione o tipo do seu feedback</p>
+
+                    <div className={styles.feedbackType}>
+                      <span>Icone</span>
+                      <span>Icone</span>
+                    </div>
+
+                    <div className={styles.feedbackTags}>
+                      <select name="feedbackTags" id="feedbackTags">
+                        <option value="tag1">Tag1</option>
+                        <option value="tag2">Tag2</option>
+                        <option value="tag3">Tag3</option>
+                        <option value="tag4">Tag4</option>
+                      </select>
+                    </div>
+                  </div>
                 </Modal>
               </div>
             </div>
