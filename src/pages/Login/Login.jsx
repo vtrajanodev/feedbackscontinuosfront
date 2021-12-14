@@ -30,10 +30,10 @@ export const Login = () => {
               <div>
                 <img src={Logo} alt="logo" />
               </div>
-              <div>
-                  <h3>Sistema de Feedbacks Contínuos</h3>
-                  <button onClick={registerUser}>Não possui cadastro?</button>
-                </div>
+              <div className={styles.handleNavigateToRegister}>
+                <h3>Sistema de Feedbacks Contínuos</h3>
+                <button onClick={registerUser}>Não possui cadastro?</button>
+              </div>
             </div>
             <div className={styles.registerForm}>
               <h1>Login</h1>

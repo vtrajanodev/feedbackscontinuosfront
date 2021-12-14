@@ -63,7 +63,7 @@ export const RegisterUser = () => {
                   <img src={Logo} alt="logo" />
                 </div>
 
-                <div>
+                <div className={styles.handleNavigateToLogin}>
                   <h3>Sistema de Feedback Continuo da DBC Company</h3>
                   <p>Ja possui cadastro?</p>
                   <button onClick={() => navigate('/login')}>Clique aqui e faça login</button>
