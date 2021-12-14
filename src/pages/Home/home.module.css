@@ -37,6 +37,10 @@ main a {
   justify-content: center;
 }
 
+.cardsList h3 {
+  margin-top: 2rem;
+}
+
 .card {
   height: 100px;
   margin: 2rem 0;
@@ -97,6 +101,20 @@ main a {
 .cardContent button:hover {
   background-color: rgb(165, 165, 165);
 }
+
+
+.withoutFeedbackEnviado button {
+  margin-top: 2rem;
+  height: 30px;
+  width: 220px;
+  border-radius: .25rem;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  color: #1A75C1;
+  font-weight: bold;
+}
+
 
 
 

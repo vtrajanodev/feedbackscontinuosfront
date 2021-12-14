@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CardFeedbackEnviado } from '../../components/CardFeedbackEnviado/CardFeedbackEnviado'
 import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
 import { Loading } from '../../components/Loading/Loading'
@@ -12,6 +12,7 @@ export const Home = () => {
 
   const { employee } = useContext(AuthContext)
   const { feedbacksRecebidos, feedbacksEnviados, loading } = useContext(FeedbackContext)
+  const navigate = useNavigate()
 
   return (
     <main>
@@ -31,8 +32,10 @@ export const Home = () => {
         </nav>
       </div>
 
+
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
-      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} />
+
+      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} />
       {loading && <Loading />}
     </main>
   )
