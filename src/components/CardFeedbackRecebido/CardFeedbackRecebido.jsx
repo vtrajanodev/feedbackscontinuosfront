@@ -13,7 +13,7 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
       <section className={styles.cardsList}>
         <h1>Feedbacks recebidos</h1>
         {!feedbacksRecebidos.length ?
-          <h3>Poxa! Parece que você ainda não tem feedbacks recebidos.</h3>
+          <h4>Poxa! Parece que você ainda não tem feedbacks recebidos.</h4>
           :
           feedbacksRecebidos.map(feedback => (
             <div key={feedback.idFeedback}>
