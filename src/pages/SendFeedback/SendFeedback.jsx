@@ -7,11 +7,10 @@ export const SendFeedback = () => {
   return (
     <section className={styles.sendFeedbackContainer}>
       <div className={styles.sendFeedbackHeader}>
-        div
         <p>Envie feedback sobre um colaborador</p>
         <Link to="/home">Home</Link>
       </div>
-      <CardSendFeedback styles={styles}/>
+      <CardSendFeedback styles={styles} />
     </section>
   )
 }
