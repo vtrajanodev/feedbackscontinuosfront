@@ -4,14 +4,21 @@ section.sendFeedbackContainer {
   margin: 0 auto;
   margin-bottom: 4rem;
   padding-bottom: 2rem;
+
 }
 
-
-.sendFeedbackHeader p {
-  text-align: center;
+.sendFeedbackHeader {
   padding: 1rem 0 ;
   border-bottom: 1px solid #ccc;
   color: #1A75C1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 4rem
+}
+
+.sendFeedbackHeader a {
+  color: black;
 }
 
 .cardList {

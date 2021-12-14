@@ -1,11 +1,15 @@
 import { Formik, Field, Form } from 'formik';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../images/logo.png';
 import styles from '../styles/loginAndRegister.module.css';
 
 export const Login = () => {
+
+  const registerUser = () => {
+    return navigate('/cadastro-usuario')
+  }
 
   const { handleLogin } = useContext(AuthContext)
   const navigate = useNavigate()
@@ -28,7 +32,7 @@ export const Login = () => {
               </div>
               <div>
                   <h3>Sistema de Feedbacks Contínuos</h3>
-                  <button onClick={navigate('/cadastro-usuario')}>Não possui cadastro?</button>
+                  <button onClick={registerUser}>Não possui cadastro?</button>
                 </div>
             </div>
             <div className={styles.registerForm}>

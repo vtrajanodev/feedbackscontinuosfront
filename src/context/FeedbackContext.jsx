@@ -9,15 +9,14 @@ export const FeedbackContextProvider = ({ children }) => {
   const [feedbacksRecebidos, setFeedbacksRecebidos] = useState([])
   const [feedbacksEnviados, setFeedbacksEnviados] = useState([])
   const [tagsList, setTagsList] = useState([])
-
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+
     const token = localStorage.getItem('token')
     if (token) {
       api.defaults.headers.common['Authorization'] = token
-      getFeedbacksRecebidos()
-      getFeedbacksEnviados()
-      getTags()
+      Promise.all([getFeedbacksRecebidos(), getFeedbacksEnviados(), getTags()]).then(() => setLoading(false))
     }
   }, [])
 
@@ -52,9 +51,21 @@ export const FeedbackContextProvider = ({ children }) => {
     }
   }
 
+  const handleEditVisibleStatus = async (feedback) => {
+
+    if (feedback.visivel) {
+      const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
+      console.log(data)
+    } else {
+      const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
+      console.log(data)
+    }
+    getFeedbacksRecebidos()
+  }
+
 
   return (
-    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados, tagsList, postFeedback }}>
+    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados, tagsList, postFeedback, handleEditVisibleStatus, getFeedbacksRecebidos, loading }}>
       {children}
     </FeedbackContext.Provider>
   );
