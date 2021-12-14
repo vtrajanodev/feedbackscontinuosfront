@@ -9,12 +9,15 @@ import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
 import { Loading } from "../components/Loading/Loading";
 import { useEffect } from "react/cjs/react.development";
 import { api } from "../services/api";
+import { FeedbackContext } from "../context/FeedbackContext";
 
 
 
 export const LinkRoutes = () => {
 
   const { token } = useContext(AuthContext)
+  const { loadingFeedback } = useContext(FeedbackContext)
+  const { loadingEmployee } = useContext(FeedbackContext)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -25,6 +28,9 @@ export const LinkRoutes = () => {
 
   return (
     <>
+      {(loadingFeedback || loadingEmployee) &&
+        <Loading />
+      }
       <Header />
       <Routes>
         <Route path="/login" element={

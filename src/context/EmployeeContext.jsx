@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react/cjs/react.development";
 import { api } from "../services/api";
 
@@ -8,7 +7,6 @@ export const EmployeeContext = createContext()
 export const EmployeeContextProvider = ({ children }) => {
 
   const [employeeList, setEmployeeList] = useState([])
-  const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -34,7 +32,6 @@ export const EmployeeContextProvider = ({ children }) => {
     setEmployeeList(data)
   }
 
- 
 
   return (
     <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading }}>

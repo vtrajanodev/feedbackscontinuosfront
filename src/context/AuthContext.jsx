@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 
 export const AuthContext = createContext()
@@ -7,7 +6,6 @@ export const AuthContext = createContext()
 export const AuthContextProvider = ({ children }) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const navigate = useNavigate()
   const token = localStorage.getItem('token')
 
   const [employee, setEmployee] = useState({
