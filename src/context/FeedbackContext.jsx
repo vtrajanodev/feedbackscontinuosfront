@@ -9,6 +9,7 @@ export const FeedbackContextProvider = ({ children }) => {
   const [feedbacksRecebidos, setFeedbacksRecebidos] = useState([])
   const [feedbacksEnviados, setFeedbacksEnviados] = useState([])
   const [tagsList, setTagsList] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -59,7 +60,6 @@ export const FeedbackContextProvider = ({ children }) => {
       console.log(data)
     } else {
       const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
-        .then(getFeedbacksRecebidos())
       console.log(data)
     }
   }

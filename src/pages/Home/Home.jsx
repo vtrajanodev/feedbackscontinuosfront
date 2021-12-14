@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CardFeedbackEnviado } from '../../components/CardFeedbackEnviado/CardFeedbackEnviado'
 import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
+import { Loading } from '../../components/Loading/Loading'
 import { AuthContext } from '../../context/AuthContext'
 import { FeedbackContext } from '../../context/FeedbackContext'
 import logo from '../../images/img.jpg'
@@ -10,7 +11,7 @@ import styles from './home.module.css'
 export const Home = () => {
 
   const { employee } = useContext(AuthContext)
-  const { feedbacksRecebidos, feedbacksEnviados } = useContext(FeedbackContext)
+  const { feedbacksRecebidos, feedbacksEnviados, loading } = useContext(FeedbackContext)
 
   return (
     <main>
@@ -32,6 +33,7 @@ export const Home = () => {
 
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
       <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} />
+      {loading && <Loading />}
     </main>
   )
 }

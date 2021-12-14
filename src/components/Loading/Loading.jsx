@@ -7,15 +7,14 @@ import styles from './loading.module.css'
 
 export const Loading = () => {
 
-  const { loading } = useContext(AuthContext)
 
   return (
     <>
-      {loading && (
-        <div className={styles.loadingContainer}>
-          <img src={logo} alt="loading..." />
-        </div>
-      )}
+
+      <div className={styles.loadingContainer}>
+        <img src={logo} alt="loading..." />
+      </div>
+
     </>
   )
 }

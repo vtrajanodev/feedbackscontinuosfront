@@ -7,12 +7,21 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
 import { Loading } from "../components/Loading/Loading";
+import { useEffect } from "react/cjs/react.development";
+import { api } from "../services/api";
 
 
 
 export const LinkRoutes = () => {
 
   const { token } = useContext(AuthContext)
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      api.defaults.headers.common['Authorization'] = token
+    }
+  }, [])
 
   return (
     <>
