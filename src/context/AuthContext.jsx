@@ -8,6 +8,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
   const token = localStorage.getItem('token')
 
   const [employee, setEmployee] = useState({
@@ -21,6 +22,7 @@ export const AuthContextProvider = ({ children }) => {
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
       getEmployeeInfos()
+      setLoading(false)
     }
   }, [])
 
@@ -34,6 +36,7 @@ export const AuthContextProvider = ({ children }) => {
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
       window.location.href = '/home'
+      setLoading(false)
     } catch (err) {
       console.log(err)
     }
@@ -47,6 +50,7 @@ export const AuthContextProvider = ({ children }) => {
         email: data.email,
         id: data.idFuncionario
       })
+      setLoading(false)
     } catch (err) {
       console.log(err)
     }
@@ -58,11 +62,12 @@ export const AuthContextProvider = ({ children }) => {
     if (localStorage.getItem('token') === null) {
       setIsAuthenticated(false)
     }
+    setLoading(false)
 
     return logout
   }
   return (
-    <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout, setIsAuthenticated, employee, token }}>
+    <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout, setIsAuthenticated, employee, token, loading }}>
       {children}
     </AuthContext.Provider>
   );

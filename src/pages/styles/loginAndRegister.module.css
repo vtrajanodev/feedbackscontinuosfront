@@ -54,6 +54,10 @@
   cursor: pointer;
   font-weight: 600;
   color: rgb(87, 87, 87);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .signIn button:hover {

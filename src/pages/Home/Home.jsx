@@ -12,7 +12,6 @@ export const Home = () => {
   const { employee } = useContext(AuthContext)
   const { feedbacksRecebidos, feedbacksEnviados } = useContext(FeedbackContext)
 
-
   return (
     <main>
       <div className={styles.mainHeader}>
@@ -32,8 +31,7 @@ export const Home = () => {
       </div>
 
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
-      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo}/>
-
+      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} />
     </main>
   )
 }

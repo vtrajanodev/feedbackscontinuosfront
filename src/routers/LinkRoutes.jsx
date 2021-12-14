@@ -6,6 +6,7 @@ import { Home } from "../pages/Home/Home";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
+import { Loading } from "../components/Loading/Loading";
 
 
 
@@ -18,11 +19,11 @@ export const LinkRoutes = () => {
       <Header />
       <Routes>
         <Route path="/login" element={
-            token ?
-              <Navigate to="/home" />
-              :
-              <Login />
-          } />
+          token ?
+            <Navigate to="/home" />
+            :
+            <Login />
+        } />
         <Route path="/cadastro-usuario" element={<RegisterUser />} />
         <Route path="/home" element=
           {
@@ -33,11 +34,11 @@ export const LinkRoutes = () => {
           } />
         <Route path="/enviar-feedback" element={<SendFeedback />} />
         <Route path="*" element={
-            !token ?
-              <Navigate to="/login" />
-              :
-              <Navigate to="/home" />
-          } />
+          !token ?
+            <Navigate to="/login" />
+            :
+            <Navigate to="/home" />
+        } />
       </Routes>
     </>
   )

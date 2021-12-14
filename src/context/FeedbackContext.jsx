@@ -10,7 +10,6 @@ export const FeedbackContextProvider = ({ children }) => {
   const [feedbacksEnviados, setFeedbacksEnviados] = useState([])
   const [tagsList, setTagsList] = useState([])
 
-
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -52,9 +51,22 @@ export const FeedbackContextProvider = ({ children }) => {
     }
   }
 
+  const handleEditVisibleStatus = async (feedback) => {
+
+    if (feedback.visivel) {
+      const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
+        .then(getFeedbacksRecebidos())
+      console.log(data)
+    } else {
+      const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
+        .then(getFeedbacksRecebidos())
+      console.log(data)
+    }
+  }
+
 
   return (
-    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados, tagsList, postFeedback }}>
+    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados, tagsList, postFeedback, handleEditVisibleStatus, getFeedbacksRecebidos }}>
       {children}
     </FeedbackContext.Provider>
   );
