@@ -8,13 +8,14 @@ import styles from '../styles/loginAndRegister.module.css';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useState } from 'react/cjs/react.development';
+;
 
 export const RegisterUser = () => {
 
+  const [fileUpload, setFileUpload] = useState()
   const { handleRegisterEmployee, handlePostEmployeeImage } = useContext(EmployeeContext)
   const { handleLogin } = useContext(AuthContext)
   const navigate = useNavigate()
-
 
 
   // const validateSchema = Yup.object().shape({
@@ -34,7 +35,6 @@ export const RegisterUser = () => {
   //     .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
   // });
 
-  let fileUpload;
 
   const onChangeUpload = (event) => {
     const reader = new FileReader();
@@ -42,10 +42,9 @@ export const RegisterUser = () => {
     reader.readAsDataURL(file);
 
     reader.onload = () => {
-      fileUpload = file
+      setFileUpload(file)
     }
   }
-
 
   return (
     <div className={styles.registerUserContainer}>
@@ -69,7 +68,6 @@ export const RegisterUser = () => {
           await handleRegisterEmployee(values)
           await handleLogin(login)
           await handlePostEmployeeImage(fileUpload)
-          console.log('aqui')
           setSubmitting(false);
         }}
       >

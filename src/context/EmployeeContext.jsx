@@ -31,19 +31,19 @@ export const EmployeeContextProvider = ({ children }) => {
     console.log(data)
     setEmployeeList(data)
   }
-
+  
   const handlePostEmployeeImage = async (img) => {
     console.log(img)
     const upload = new FormData();
     upload.append('foto', img);
-
     const { data } = await api.post('foto-perfil/upload-foto', upload)
-    console.log(data)
     api.defaults.headers.common['Content-Type'] = 'multipart/form-data'
+    window.location.href('/home')
+    console.log(data)
   }
 
   return (
-    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, handlePostEmployeeImage }}>
+    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage }}>
       {children}
     </EmployeeContext.Provider>
   );
