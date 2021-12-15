@@ -33,9 +33,13 @@ export const EmployeeContextProvider = ({ children }) => {
   }
 
   const handlePostEmployeeImage = async (img) => {
-    const { data } = await api.post('foto-perfil/upload-foto', img)
-    window.location.href = '/home'
+    console.log(img)
+    const upload = new FormData();
+    upload.append('foto', img);
+
+    const { data } = await api.post('foto-perfil/upload-foto', upload)
     console.log(data)
+    api.defaults.headers.common['Content-Type'] = 'multipart/form-data'
   }
 
   return (

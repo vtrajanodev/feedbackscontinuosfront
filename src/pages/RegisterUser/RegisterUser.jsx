@@ -7,12 +7,15 @@ import Logo from '../../images/logo.png'
 import styles from '../styles/loginAndRegister.module.css';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { useState } from 'react/cjs/react.development';
 
 export const RegisterUser = () => {
 
   const { handleRegisterEmployee, handlePostEmployeeImage } = useContext(EmployeeContext)
   const { handleLogin } = useContext(AuthContext)
   const navigate = useNavigate()
+
+
 
   // const validateSchema = Yup.object().shape({
   //   nome: Yup.string()
@@ -31,6 +34,19 @@ export const RegisterUser = () => {
   //     .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
   // });
 
+  let fileUpload;
+
+  const onChangeUpload = (event) => {
+    const reader = new FileReader();
+    const file = event.target.files[0];
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      fileUpload = file
+    }
+  }
+
+
   return (
     <div className={styles.registerUserContainer}>
       <Formik
@@ -38,8 +54,7 @@ export const RegisterUser = () => {
           nome: '',
           email: '',
           senha: '',
-          file: '',
-          UrlImagem: '',
+          foto: '',
           senhaConfirm: ''
         }}
         // validationSchema={validateSchema}
@@ -53,12 +68,8 @@ export const RegisterUser = () => {
           }
           await handleRegisterEmployee(values)
           await handleLogin(login)
-          await handlePostEmployeeImage(JSON.stringify(
-            {
-              nomeFotoPerfil: values.file.name,
-              tipoFotoPerfil: values.file.type,
-              size: values.file.size ,
-            }))
+          await handlePostEmployeeImage(fileUpload)
+          console.log('aqui')
           setSubmitting(false);
         }}
       >
@@ -107,8 +118,8 @@ export const RegisterUser = () => {
                 </div>
 
                 <div className={styles.fileLabel}>
-                  <label htmlFor="UrlImagem">Imagem de perfil</label>
-                  <Field type="file" id="UrlImagem" name="urlImagem" accept="image/*" onChange={(e) => props.setFieldValue("file", e.currentTarget.files[0])} />
+                  <label htmlFor="file">Imagem de perfil</label>
+                  <Field type="file" id="file" name="foto" accept="image/*" onChange={(event) => onChangeUpload(event)} />
                 </div>
                 <div className={styles.buttonSubmit}>
                   <button type="submit">Cadastrar</button>
