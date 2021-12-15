@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 
 export const AuthContext = createContext()
@@ -7,6 +8,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const token = localStorage.getItem('token')
+  const navigate = useNavigate()
 
   const [employee, setEmployee] = useState({
     nome: '',
@@ -31,7 +33,7 @@ export const AuthContextProvider = ({ children }) => {
       localStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
-      window.location.href = '/home'
+      navigate('/home')
     } catch (err) {
       console.log(err)
     }

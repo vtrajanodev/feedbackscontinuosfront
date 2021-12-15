@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { api } from "../services/api";
 
 export const EmployeeContext = createContext()
@@ -32,9 +32,14 @@ export const EmployeeContextProvider = ({ children }) => {
     setEmployeeList(data)
   }
 
+  const handlePostEmployeeImage = async (img) => {
+    const { data } = await api.post('foto-perfil/upload-foto', img)
+    window.location.href = '/home'
+    console.log(data)
+  }
 
   return (
-    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading }}>
+    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, handlePostEmployeeImage }}>
       {children}
     </EmployeeContext.Provider>
   );

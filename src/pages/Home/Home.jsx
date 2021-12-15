@@ -11,7 +11,7 @@ import styles from './home.module.css'
 export const Home = () => {
 
   const { employee } = useContext(AuthContext)
-  const { feedbacksRecebidos, feedbacksEnviados, loading } = useContext(FeedbackContext)
+  const { feedbacksRecebidos, feedbacksEnviados } = useContext(FeedbackContext)
   const navigate = useNavigate()
 
   return (
@@ -35,7 +35,6 @@ export const Home = () => {
 
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
       <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} />
-      {loading && <Loading />}
     </main>
   )
 }

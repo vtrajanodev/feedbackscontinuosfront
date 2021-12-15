@@ -35,9 +35,7 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
               </div>
             </div>
           ))
-
         }
-
       </section>
     </>
   )

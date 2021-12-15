@@ -2,7 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../context/EmployeeContext';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import Logo from '../../images/logo.png'
 import styles from '../styles/loginAndRegister.module.css';
 import { useNavigate } from 'react-router-dom';
@@ -10,26 +10,26 @@ import { AuthContext } from '../../context/AuthContext';
 
 export const RegisterUser = () => {
 
-  const { handleRegisterEmployee } = useContext(EmployeeContext)
+  const { handleRegisterEmployee, handlePostEmployeeImage } = useContext(EmployeeContext)
   const { handleLogin } = useContext(AuthContext)
   const navigate = useNavigate()
 
-  const validateSchema = Yup.object().shape({
-    nome: Yup.string()
-      .min(10, 'Nome muito curto!')
-      .max(55, 'Campo com máximo de 55 caracteres')
-      .required('Nome é um campo obrigatório'),
-    email: Yup.string()
-      .min(10, 'Email muito curto')
-      .max(70, 'Email muito longo')
-      .matches(/@dbccompany\.com.br$/, 'Dominio @dbccompany.com.br obrigatório')
-      .required('Email é um campo obrigatório'),
-    senha: Yup.string()
-      .min(8, 'A senha deve conter pelo menos 8 caracteres')
-      .required('Senha é um campo obrigatório'),
-    senhaConfirm: Yup.string()
-      .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
-  });
+  // const validateSchema = Yup.object().shape({
+  //   nome: Yup.string()
+  //     .min(10, 'Nome muito curto!')
+  //     .max(55, 'Campo com máximo de 55 caracteres')
+  //     .required('Nome é um campo obrigatório'),
+  //   email: Yup.string()
+  //     .min(10, 'Email muito curto')
+  //     .max(70, 'Email muito longo')
+  //     .matches(/@dbccompany\.com.br$/, 'Dominio @dbccompany.com.br obrigatório')
+  //     .required('Email é um campo obrigatório'),
+  //   senha: Yup.string()
+  //     .min(8, 'A senha deve conter pelo menos 8 caracteres')
+  //     .required('Senha é um campo obrigatório'),
+  //   senhaConfirm: Yup.string()
+  //     .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
+  // });
 
   return (
     <div className={styles.registerUserContainer}>
@@ -38,10 +38,11 @@ export const RegisterUser = () => {
           nome: '',
           email: '',
           senha: '',
-          urlImagem: '',
+          file: '',
+          UrlImagem: '',
           senhaConfirm: ''
         }}
-        validationSchema={validateSchema}
+        // validationSchema={validateSchema}
         onSubmit={async (
           values,
           { setSubmitting }
@@ -52,6 +53,12 @@ export const RegisterUser = () => {
           }
           await handleRegisterEmployee(values)
           await handleLogin(login)
+          await handlePostEmployeeImage(JSON.stringify(
+            {
+              nomeFotoPerfil: values.file.name,
+              tipoFotoPerfil: values.file.type,
+              size: values.file.size ,
+            }))
           setSubmitting(false);
         }}
       >
@@ -100,8 +107,8 @@ export const RegisterUser = () => {
                 </div>
 
                 <div className={styles.fileLabel}>
-                  <label htmlFor="urlImagem">Imagem de perfil</label>
-                  <Field type="file" id="urlImagem" name="urlImagem" placeholder="email@exemplo.com" />
+                  <label htmlFor="UrlImagem">Imagem de perfil</label>
+                  <Field type="file" id="UrlImagem" name="urlImagem" accept="image/*" onChange={(e) => props.setFieldValue("file", e.currentTarget.files[0])} />
                 </div>
                 <div className={styles.buttonSubmit}>
                   <button type="submit">Cadastrar</button>
