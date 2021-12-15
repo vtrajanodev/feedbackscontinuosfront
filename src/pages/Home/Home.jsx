@@ -34,7 +34,6 @@ export const Home = () => {
 
 
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
-
       <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} />
       {loading && <Loading />}
     </main>
