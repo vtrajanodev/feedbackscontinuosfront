@@ -12,7 +12,7 @@ export const SendFeedback = () => {
   const { loading, getEmployee, setLoading, getEmployeePhoto, img } = useContext(EmployeeContext)
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
     if (token) {
       api.defaults.headers.Authorization = token
       Promise.all([getEmployee(), getEmployeePhoto()]).then(() => setLoading(false))
@@ -29,7 +29,7 @@ export const SendFeedback = () => {
           <p>Envie feedback sobre um colaborador</p>
           <Link to="/home">Home</Link>
         </div>
-        <img id="profileImage" src={`data:image/jpg;base64,${img}`} />
+        <img id="profileImage" src={`data:image/jpg;base64,${img}`} alt='imagem que nem funciona'/>
         <CardSendFeedback styles={styles} />
       </section>
     </>

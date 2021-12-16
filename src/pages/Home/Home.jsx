@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react/cjs/react.development'
 import { CardFeedbackEnviado } from '../../components/CardFeedbackEnviado/CardFeedbackEnviado'
 import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
+import { Loading } from '../../components/Loading/Loading'
 import { AuthContext } from '../../context/AuthContext'
 import { FeedbackContext } from '../../context/FeedbackContext'
 import logo from '../../images/img.jpg'
@@ -12,12 +13,12 @@ import styles from './home.module.css'
 export const Home = () => {
 
   const { employee, getEmployeeInfos } = useContext(AuthContext)
-  const { feedbacksRecebidos, feedbacksEnviados, getFeedbacksRecebidos, getFeedbacksEnviados, getTags, setLoading } = useContext(FeedbackContext)
-  
+  const { feedbacksRecebidos, feedbacksEnviados, getFeedbacksRecebidos, getFeedbacksEnviados, getTags, setLoading, loading } = useContext(FeedbackContext)
+
   const navigate = useNavigate()
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
 
     if (token) {
       api.defaults.headers.Authorization = token
@@ -32,6 +33,7 @@ export const Home = () => {
 
   return (
     <main>
+      {loading && <Loading />}
       <div className={styles.mainHeader}>
         <div>
           Ola {employee.nome}, seja bem vindo!

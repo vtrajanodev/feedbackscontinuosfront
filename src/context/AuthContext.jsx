@@ -7,7 +7,7 @@ export const AuthContext = createContext()
 export const AuthContextProvider = ({ children }) => {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
   const navigate = useNavigate()
 
   const [employee, setEmployee] = useState({
@@ -29,7 +29,7 @@ export const AuthContextProvider = ({ children }) => {
       console.log(response)
       const token = response.data
       console.log(token)
-      localStorage.setItem('token', token)
+      sessionStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
       navigate('/home')

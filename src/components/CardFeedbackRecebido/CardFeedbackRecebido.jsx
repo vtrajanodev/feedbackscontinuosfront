@@ -1,14 +1,12 @@
 import { useContext } from "react"
 import { FeedbackContext } from "../../context/FeedbackContext"
-import { Loading } from "../Loading/Loading"
 
 export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
 
-  const { handleEditVisibleStatus, loading } = useContext(FeedbackContext)
+  const { handleEditVisibleStatus } = useContext(FeedbackContext)
 
   return (
     <>
-      {loading && <Loading />}
       <section className={styles.cardsList}>
         <h1>Feedbacks recebidos</h1>
         {!feedbacksRecebidos.length ?
