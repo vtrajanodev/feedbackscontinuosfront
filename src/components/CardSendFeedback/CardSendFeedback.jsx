@@ -37,7 +37,6 @@ export const CardSendFeedback = ({ styles }) => {
               <div>
                 <h3>{employee.nome}</h3>
                 <p>{employee.email}</p>
-              
               </div>
               <div>
                 <button onClick={() => handleOpenNewSendFeedbackModal(employee)} >Enviar um feedback</button>

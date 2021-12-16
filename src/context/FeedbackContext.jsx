@@ -45,7 +45,7 @@ export const FeedbackContextProvider = ({ children }) => {
   }
 
   const handleEditVisibleStatus = async (feedback) => {
-
+    
     if (feedback.visivel) {
       const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
       console.log(data)
