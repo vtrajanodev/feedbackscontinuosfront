@@ -80,9 +80,9 @@ export const RegisterUser = () => {
                 </div>
 
                 <div className={styles.handleNavigateToLogin}>
-                  <h3>Sistema de Feedback Continuo da DBC Company</h3>
+                  <h3>Sistema de Feedbacks</h3>
                   <p>Ja possui cadastro?</p>
-                  <button onClick={() => navigate('/login')}>Clique aqui e faça login</button>
+                  <button onClick={() => navigate('/login')}>Faça seu login</button>
                 </div>
               </div>
 
@@ -103,7 +103,7 @@ export const RegisterUser = () => {
                 </div>
                 <div>
                   <Field id="senha" name="senha" placeholder="Senha" />
-                  <PasswordStrengthBar password={props.values.senha} className={styles.bar} shortScoreWord={'Muito pequena'} scoreWords={['fraca', 'moderada', 'forte', 'ideal']} minLength={3} maxLength={16} scoreWordClassName='strong' />
+                  <PasswordStrengthBar password={props.values.senha} className={styles.bar} shortScoreWord={'Muito curta'} scoreWords={['fraca', 'moderada', 'forte', 'ideal']} minLength={3} maxLength={16} scoreWordClassName='strong' />
                   {(props.errors.senha && props.touched.senha) && (
                     <span>{props.errors.senha}</span>
                   )}
