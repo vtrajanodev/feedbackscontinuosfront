@@ -18,9 +18,8 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token) {
-      api.defaults.headers.common['Authorization'] = token
+      api.defaults.headers.Authorization = token
       setIsAuthenticated(true)
-      getEmployeeInfos()
     }
   }, [])
 
@@ -33,9 +32,7 @@ export const AuthContextProvider = ({ children }) => {
       localStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
-      setTimeout(() => {
-        window.location.href = '/home'
-      }, 400);
+      navigate('/home')
     } catch (err) {
       console.log(err)
     }
@@ -64,7 +61,7 @@ export const AuthContextProvider = ({ children }) => {
     return logout
   }
   return (
-    <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout, setIsAuthenticated, employee, token }}>
+    <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout, setIsAuthenticated, employee, token, getEmployeeInfos }}>
       {children}
     </AuthContext.Provider>
   );

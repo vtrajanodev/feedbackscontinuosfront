@@ -40,7 +40,7 @@ export const RegisterUser = () => {
     const reader = new FileReader();
     const file = event.target.files[0];
     reader.readAsDataURL(file);
-
+    
     reader.onload = () => {
       setFileUpload(file)
     }

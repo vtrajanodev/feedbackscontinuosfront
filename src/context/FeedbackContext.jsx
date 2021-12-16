@@ -1,5 +1,6 @@
 import { createContext } from "react";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 import { api } from "../services/api";
 
 export const FeedbackContext = createContext()
@@ -10,15 +11,7 @@ export const FeedbackContextProvider = ({ children }) => {
   const [feedbacksEnviados, setFeedbacksEnviados] = useState([])
   const [tagsList, setTagsList] = useState([])
   const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-
-    const token = localStorage.getItem('token')
-    if (token) {
-      api.defaults.headers.common['Authorization'] = token
-      Promise.all([getFeedbacksRecebidos(), getFeedbacksEnviados(), getTags()]).then(() => setLoading(false))
-    }
-  }, [])
+  const navigate = useNavigate()
 
   const getFeedbacksRecebidos = async () => {
     const { data } = await api.get('/feedbacks/recebidos')
@@ -44,7 +37,7 @@ export const FeedbackContextProvider = ({ children }) => {
       const { data } = await api.post('/feedbacks/postar', values)
       console.log(data)
       alert('Feedback enviado com sucesso!')
-      window.location.href = '/home'
+      navigate('/home')
     } catch (err) {
       console.log('deu erro =>' + err)
       console.log(values)
@@ -65,7 +58,7 @@ export const FeedbackContextProvider = ({ children }) => {
 
 
   return (
-    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados, tagsList, postFeedback, handleEditVisibleStatus, getFeedbacksRecebidos, loading }}>
+    <FeedbackContext.Provider value={{ feedbacksRecebidos, feedbacksEnviados, tagsList, postFeedback, handleEditVisibleStatus, getFeedbacksRecebidos, getFeedbacksEnviados, getTags, loading, setLoading }}>
       {children}
     </FeedbackContext.Provider>
   );

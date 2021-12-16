@@ -7,7 +7,6 @@ import { Field, Form, Formik } from "formik"
 import { FeedbackContext } from "../../context/FeedbackContext"
 
 Modal.setAppElement('#root')
-
 export const CardSendFeedback = ({ styles }) => {
 
   const [targetEmployee, setTargetEmployee] = useState()
@@ -38,6 +37,7 @@ export const CardSendFeedback = ({ styles }) => {
               <div>
                 <h3>{employee.nome}</h3>
                 <p>{employee.email}</p>
+              
               </div>
               <div>
                 <button onClick={() => handleOpenNewSendFeedbackModal(employee)} >Enviar um feedback</button>

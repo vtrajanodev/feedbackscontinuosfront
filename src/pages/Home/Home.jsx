@@ -1,17 +1,34 @@
 import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useEffect } from 'react/cjs/react.development'
 import { CardFeedbackEnviado } from '../../components/CardFeedbackEnviado/CardFeedbackEnviado'
 import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
 import { AuthContext } from '../../context/AuthContext'
 import { FeedbackContext } from '../../context/FeedbackContext'
 import logo from '../../images/img.jpg'
+import { api } from '../../services/api'
 import styles from './home.module.css'
 
 export const Home = () => {
 
-  const { employee } = useContext(AuthContext)
-  const { feedbacksRecebidos, feedbacksEnviados } = useContext(FeedbackContext)
+  const { employee, getEmployeeInfos } = useContext(AuthContext)
+  const { feedbacksRecebidos, feedbacksEnviados, getFeedbacksRecebidos, getFeedbacksEnviados, getTags, setLoading } = useContext(FeedbackContext)
+  
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+
+    if (token) {
+      api.defaults.headers.Authorization = token
+      Promise.all([getEmployeeInfos(),
+      getFeedbacksRecebidos(),
+      getFeedbacksEnviados(),
+      getTags()
+      ])
+        .then(() => setLoading(false))
+    }
+  }, [])
 
   return (
     <main>
