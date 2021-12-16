@@ -1,9 +1,11 @@
 import { useContext } from "react"
 import { FeedbackContext } from "../../context/FeedbackContext"
+import defaultImage from '../../images/defaultImage.png'
 
 export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
 
   const { handleEditVisibleStatus } = useContext(FeedbackContext)
+  const base64Img = 'data:image/*;base64,'
 
   return (
     <>
@@ -16,7 +18,7 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
             <div key={feedback.idFeedback}>
               <div className={feedback.visivel ? styles.card : styles.cardInvisible}>
                 <div>
-                  <img src={logo} alt="Imagem perfil card" />
+                  <img src={`${feedback.funcionarioOrigem.fotoFuncionario === '' ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario }`} alt=":(" />
                 </div>
                 <div>
                   <div className={styles.cardTitle}>

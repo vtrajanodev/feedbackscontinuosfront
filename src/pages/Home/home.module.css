@@ -70,9 +70,10 @@ main a {
 }
 
 .card img,.cardInvisible img {
-  width: 50px;
+  width: 60px;
+  height: 60px;
   margin: 0 2rem;
-  border-radius: 100%;
+  border-radius: 2rem;
 }
 
 .cardTitle {

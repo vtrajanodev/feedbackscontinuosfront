@@ -40,7 +40,6 @@ export const FeedbackContextProvider = ({ children }) => {
       navigate('/home')
     } catch (err) {
       console.log('deu erro =>' + err)
-      console.log(values)
     }
   }
 

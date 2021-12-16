@@ -1,4 +1,9 @@
+import defaultImage from '../../images/defaultImage.png'
+
 export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados, logo }) => {
+  
+  const base64Img = 'data:image/*;base64,'
+
   return (
     <div>
       <section className={styles.cardsList}>
@@ -13,7 +18,7 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados, logo 
               <div key={feedback.idFeedback}>
                 <div className={styles.card}>
                   <div>
-                    <img src={logo} alt="Imagem perfil card" />
+                    <img src={`${feedback.funcionarioOrigem.fotoFuncionario === '' ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario  }`} alt="Imagem perfil card" width={50} height={50}/>
                   </div>
                   <div>
                     <div className={styles.cardTitle}>

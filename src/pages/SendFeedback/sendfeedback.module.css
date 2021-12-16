@@ -39,8 +39,9 @@ section.sendFeedbackContainer {
 }
 
 .card img {
-  width: 50px;
-  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  border-radius: 2rem;
   margin-left: 2rem;
 }
 

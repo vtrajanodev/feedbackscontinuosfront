@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { useState } from "react"
 import { EmployeeContext } from "../../context/EmployeeContext"
 import Modal from 'react-modal'
-import logo from '../../images/img.jpg'
+import defaultImage from '../../images/defaultImage.png'
 import { Field, Form, Formik } from "formik"
 import { FeedbackContext } from "../../context/FeedbackContext"
 
@@ -13,6 +13,7 @@ export const CardSendFeedback = ({ styles }) => {
   const { employeeList } = useContext(EmployeeContext)
   const { tagsList, postFeedback } = useContext(FeedbackContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const base64Img = 'data:image/*;base64,'
 
   const handleOpenNewSendFeedbackModal = (employee) => {
     setTargetEmployee(employee)
@@ -31,7 +32,7 @@ export const CardSendFeedback = ({ styles }) => {
         <div key={employee.idFuncionario}>
           <div className={styles.card}>
             <div>
-              <img src={logo} alt="Imagem perfil card" />
+              <img id="profileImage" src={`${employee.fotoFuncionario === '' ? defaultImage : base64Img + employee.fotoFuncionario }`} alt=':(' width="50px" heigth="50px"/>
             </div>
             <div className={styles.cardContent}>
               <div>

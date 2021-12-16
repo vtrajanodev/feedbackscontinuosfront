@@ -8,7 +8,6 @@ export const EmployeeContextProvider = ({ children }) => {
 
   const [employeeList, setEmployeeList] = useState([])
   const [loading, setLoading] = useState(true)
-  const [img, setImg] = useState('')
 
   const handleRegisterEmployee = async (employee) => {
     try {
@@ -33,14 +32,8 @@ export const EmployeeContextProvider = ({ children }) => {
     console.log(data)
   }
 
-  const getEmployeePhoto = async () => {
-    const { data } = await api.get('/foto-perfil/download-foto')
-    console.log(data)
-    setImg(data)
-  }
-
   return (
-    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getEmployee, setLoading, getEmployeePhoto, img }}>
+    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getEmployee, setLoading }}>
       {children}
     </EmployeeContext.Provider>
   );

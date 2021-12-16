@@ -52,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   const handleLogout = () => {
-    const logout = localStorage.removeItem('token')
+    const logout = sessionStorage.removeItem('token')
 
     if (localStorage.getItem('token') === null) {
       setIsAuthenticated(false)
