@@ -31,12 +31,12 @@ export const Login = () => {
                 <img src={Logo} alt="logo" />
               </div>
               <div className={styles.handleNavigateToRegister}>
-                <h3>Sistema de Feedbacks Contínuos</h3>
-                <button onClick={registerUser}>Não possui cadastro?</button>
+                <h3>Sistema de Feedbacks</h3>
+                <button onClick={registerUser}>Não possuo cadastro</button>
               </div>
             </div>
             <div className={styles.registerForm}>
-              <h1>Login</h1>
+              <h1>Acesse sua conta</h1>
               <div>
                 <Field id="email" name="email" placeholder="Usuário: " />
               </div>
