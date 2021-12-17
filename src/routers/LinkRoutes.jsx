@@ -16,7 +16,7 @@ export const LinkRoutes = ({ loading, setLoading }) => {
   const { token } = useContext(AuthContext)
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
     if (token) {
       api.defaults.headers.common['Authorization'] = token
     }
