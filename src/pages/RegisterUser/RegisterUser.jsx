@@ -5,7 +5,7 @@ import { EmployeeContext } from '../../context/EmployeeContext';
 // import * as Yup from 'yup';
 import Logo from '../../images/logo.png'
 import styles from '../styles/loginAndRegister.module.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useState } from 'react/cjs/react.development';
 ;
@@ -82,7 +82,7 @@ export const RegisterUser = () => {
                 <div className={styles.handleNavigateToLogin}>
                   <h3>Sistema de Feedbacks</h3>
                   <p>Ja possui cadastro?</p>
-                  <button onClick={() => navigate('/login')}>Faça seu login</button>
+                  <Link to="/login">Faça seu login</Link>
                 </div>
               </div>
 

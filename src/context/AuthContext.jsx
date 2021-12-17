@@ -34,7 +34,8 @@ export const AuthContextProvider = ({ children }) => {
       setIsAuthenticated(true)
       navigate('/home')
     } catch (err) {
-      console.log(err)
+      alert('Login e/ou senha incorretos')
+
     }
   }
 
