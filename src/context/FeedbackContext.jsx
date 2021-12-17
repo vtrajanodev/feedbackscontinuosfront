@@ -37,6 +37,9 @@ export const FeedbackContextProvider = ({ children }) => {
       const { data } = await api.post('/feedbacks/postar', values)
       console.log(data)
       alert('Feedback enviado com sucesso!')
+      setTimeout(() => {
+        navigate('/home')
+      }, 1000);
       navigate('/home')
     } catch (err) {
       console.log('deu erro =>' + err)

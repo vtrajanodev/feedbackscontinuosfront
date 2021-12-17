@@ -1,18 +1,14 @@
 import { Formik, Field, Form } from 'formik';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../../images/logo.png';
 import styles from '../styles/loginAndRegister.module.css';
 
 export const Login = () => {
 
-  const registerUser = () => {
-    return navigate('/cadastro-usuario')
-  }
 
   const { handleLogin } = useContext(AuthContext)
-  const navigate = useNavigate()
   return (
     <div className={styles.registerUserContainer}>
       <Formik

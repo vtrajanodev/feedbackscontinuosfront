@@ -34,8 +34,7 @@ export const AuthContextProvider = ({ children }) => {
       setIsAuthenticated(true)
       navigate('/home')
     } catch (err) {
-      alert('Login e/ou senha incorretos')
-
+      console.log(err)
     }
   }
 
@@ -58,7 +57,6 @@ export const AuthContextProvider = ({ children }) => {
     if (localStorage.getItem('token') === null) {
       setIsAuthenticated(false)
     }
-
     return logout
   }
   return (
