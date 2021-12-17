@@ -64,7 +64,6 @@ export const CardSendFeedback = ({ styles }) => {
                 idTag: 1
               }
             ],
-            anonimo: false
           }}
           // validationSchema={validateSchema}
           onSubmit={async (

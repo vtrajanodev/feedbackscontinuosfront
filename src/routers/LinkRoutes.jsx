@@ -11,7 +11,7 @@ import { api } from "../services/api";
 
 
 
-export const LinkRoutes = ({ loading, setLoading }) => {
+export const LinkRoutes = ({ }) => {
 
   const { token } = useContext(AuthContext)
 
@@ -32,7 +32,7 @@ export const LinkRoutes = ({ loading, setLoading }) => {
             :
             <Login />
         } />
-        <Route path="/cadastro-usuario" element={<RegisterUser loading={loading} setLoading={setLoading} />} />
+        <Route path="/cadastro-usuario" element={<RegisterUser />} />
         <Route path="/home" element=
           {
             !token ?

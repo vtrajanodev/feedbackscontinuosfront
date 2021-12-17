@@ -33,7 +33,7 @@ export const EmployeeContextProvider = ({ children }) => {
   }
 
   return (
-    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getEmployee, setLoading }}>
+    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getEmployee }}>
       {children}
     </EmployeeContext.Provider>
   );
