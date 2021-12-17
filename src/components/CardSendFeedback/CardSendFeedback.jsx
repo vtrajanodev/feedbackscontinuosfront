@@ -32,7 +32,7 @@ export const CardSendFeedback = ({ styles }) => {
         <div key={employee.idFuncionario}>
           <div className={styles.card}>
             <div>
-              <img id="profileImage" src={`${employee.fotoFuncionario === '' ? defaultImage : base64Img + employee.fotoFuncionario }`} alt=':(' width="50px" heigth="50px"/>
+              <img id="profileImage" src={`${employee.fotoFuncionario === '' ? defaultImage : base64Img + employee.fotoFuncionario}`} alt=':(' width="50px" heigth="50px" />
             </div>
             <div className={styles.cardContent}>
               <div>
@@ -64,7 +64,7 @@ export const CardSendFeedback = ({ styles }) => {
                 idTag: 1
               }
             ],
-            visivel: true,
+            anonimo: false
           }}
           // validationSchema={validateSchema}
           onSubmit={async (
@@ -97,7 +97,14 @@ export const CardSendFeedback = ({ styles }) => {
                 <div>
                   <Field as="textarea" name="conteudo" id="conteudo"></Field>
                 </div>
-                <button type="submit">Enviar</button>
+                <div className={styles.sendFeedbackButton}>
+                  <button type="submit">Enviar</button>
+                  <label htmlFor="anonimo">
+                    <Field type="checkbox" name="anonimo" id="anonimo" />
+                    Enviar como anônimo ?
+                    {props.values.anonimo}
+                  </label>
+                </div>
               </div>
             </Form>
           )}

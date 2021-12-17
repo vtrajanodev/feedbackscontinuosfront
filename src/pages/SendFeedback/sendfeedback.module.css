@@ -160,3 +160,16 @@ section.sendFeedbackContainer {
 button:hover {
   filter: brightness(0.6);
 }
+
+.sendFeedbackButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sendFeedbackButton input[type='checkbox'] {
+  margin:0 5px 0 12px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}

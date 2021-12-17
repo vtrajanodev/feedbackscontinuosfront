@@ -18,11 +18,11 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
             <div key={feedback.idFeedback}>
               <div className={feedback.visivel ? styles.card : styles.cardInvisible}>
                 <div>
-                  <img src={`${feedback.funcionarioOrigem.fotoFuncionario === '' ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario }`} alt=":(" />
+                  <img src={`${(feedback.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario }`} alt=":(" />
                 </div>
                 <div>
                   <div className={styles.cardTitle}>
-                    <h3>{feedback.funcionarioOrigem.nome}</h3>
+                    <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
                     <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
                       new Date(feedback.dataFeedback)
                     )}</span>
