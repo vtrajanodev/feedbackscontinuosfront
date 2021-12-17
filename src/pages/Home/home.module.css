@@ -42,14 +42,16 @@ main a {
 }
 
 .card {
-  height: 100px;
+  /* height: 100px; */
   margin: 2rem 0;
   border-radius: .25rem;
   display: flex;
   align-items: center;
   background-color: var(--white);
   box-shadow: 2px 1px 5px 0 rgb(175, 175, 175);
+  padding: 1rem 1rem 1rem 0;
   flex: 1;
+  text-align: justify;
 }
 
 .cardInvisible {
