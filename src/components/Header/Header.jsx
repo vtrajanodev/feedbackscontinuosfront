@@ -27,6 +27,7 @@ export const Header = () => {
               </span>
               <Link to="/login" onClick={handleLogout}>
                 <HiOutlineLogout/>
+                <p>Sair</p>
               </Link>
           </div>
         </header>
