@@ -1,6 +1,6 @@
 import defaultImage from '../../images/defaultImage.png'
 
-export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados, logo }) => {
+export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados }) => {
 
   const base64Img = 'data:image/*;base64,'
 
@@ -22,7 +22,7 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados, logo 
                   </div>
                   <div>
                     <div className={styles.cardTitle}>
-                    <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
+                      <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
                       <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
                         new Date(feedback.dataFeedback)
                       )}</span>
@@ -30,7 +30,11 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados, logo 
                     <div className={styles.cardContent}>
                       <p>{feedback.conteudo}</p>
                     </div>
+                    <div className={styles.tags}>{feedback.tags.map(tag => (
+                      <span key={tag.idTag}>{tag.nomeTag}</span>
+                    ))}</div>
                   </div>
+
                 </div>
               </div>
             ))}

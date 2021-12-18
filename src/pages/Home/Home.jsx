@@ -6,7 +6,6 @@ import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/Card
 import { Loading } from '../../components/Loading/Loading'
 import { AuthContext } from '../../context/AuthContext'
 import { FeedbackContext } from '../../context/FeedbackContext'
-import logo from '../../images/img.jpg'
 import { api } from '../../services/api'
 import styles from './home.module.css'
 import { FaHome } from 'react-icons/fa';
@@ -53,8 +52,8 @@ export const Home = () => {
         </nav>
       </div>
 
-      <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
-      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} />
+      <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} />
+      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} navigate={navigate} />
     </main>
   )
 }
