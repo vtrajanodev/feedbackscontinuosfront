@@ -95,6 +95,7 @@ main p, a {
 .cardContent {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .cardContent button {
@@ -124,6 +125,14 @@ main p, a {
   color: #1A75C1;
   font-weight: bold;
 }
+
+.tags span {
+  margin: 10px 10px 10px 0;
+  background-color: #ccc;
+  padding: .15rem .5rem;
+  border-radius: .5rem;
+}
+
 
 
 

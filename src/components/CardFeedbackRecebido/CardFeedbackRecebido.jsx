@@ -18,7 +18,7 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
             <div key={feedback.idFeedback}>
               <div className={feedback.visivel ? styles.card : styles.cardInvisible}>
                 <div>
-                  <img src={`${(feedback.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario }`} alt=":(" />
+                  <img src={`${(feedback.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
                 </div>
                 <div>
                   <div className={styles.cardTitle}>
@@ -30,6 +30,11 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
                   <div className={styles.cardContent}>
                     <p>{feedback.conteudo}</p>
                     <button onClick={() => handleEditVisibleStatus(feedback)}>{feedback.visivel ? 'Tornar invisível' : 'Tornar visivel'}</button>
+                  </div>
+                  <div className={styles.tags}>
+                    {feedback.tags.map(tag => (
+                      <span key={tag.idTag}>{tag.nomeTag}</span>
+                    ))}
                   </div>
                 </div>
               </div>
