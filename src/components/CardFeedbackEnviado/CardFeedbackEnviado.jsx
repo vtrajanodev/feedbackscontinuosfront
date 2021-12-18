@@ -1,7 +1,7 @@
 import defaultImage from '../../images/defaultImage.png'
 
 export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados, logo }) => {
-  
+
   const base64Img = 'data:image/*;base64,'
 
   return (
@@ -18,11 +18,11 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados, logo 
               <div key={feedback.idFeedback}>
                 <div className={styles.card}>
                   <div>
-                    <img src={`${feedback.funcionarioOrigem.fotoFuncionario === '' ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario  }`} alt="Imagem perfil card" width={50} height={50}/>
+                    <img src={`${(feedback.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
                   </div>
                   <div>
                     <div className={styles.cardTitle}>
-                      <h3>{feedback.funcionarioOrigem.nome}</h3>
+                    <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
                       <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
                         new Date(feedback.dataFeedback)
                       )}</span>
