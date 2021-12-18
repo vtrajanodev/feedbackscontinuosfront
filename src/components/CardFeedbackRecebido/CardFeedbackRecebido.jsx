@@ -10,7 +10,7 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
   return (
     <>
       <section className={styles.cardsList}>
-        <h1>Feedbacks recebidos</h1>
+        <h2>Feedbacks recebidos</h2>
         {!feedbacksRecebidos.length ?
           <h4>Poxa! Parece que você ainda não tem feedbacks recebidos.</h4>
           :

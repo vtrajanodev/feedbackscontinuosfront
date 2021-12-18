@@ -9,6 +9,9 @@ import { FeedbackContext } from '../../context/FeedbackContext'
 import logo from '../../images/img.jpg'
 import { api } from '../../services/api'
 import styles from './home.module.css'
+import { FaHome } from 'react-icons/fa';
+import { BiLike } from 'react-icons/bi';
+import imgPerfil from '../../images/img.jpg';
 
 export const Home = () => {
 
@@ -34,23 +37,25 @@ export const Home = () => {
     <main>
       {loading && <Loading />}
       <div className={styles.mainHeader}>
-        <div>
-          Ola {employee.nome}, seja bem vindo!
-        </div>
+            <Link to="/home">
+            Boas-vindas, {employee.nome}!
+            </Link>
         <nav>
           <ul>
             <Link to="/home">
-              <li>Página principal</li>
+              <span>< FaHome /></span> 
+              <li>Home</li>
             </Link>
             <Link to="/enviar-feedback">
-              <li>Enviar feedback</li>
+              <span>< BiLike /></span> 
+              <li>Enviar</li>
             </Link>
           </ul>
         </nav>
       </div>
 
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
-      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} />
+      {/* <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} /> */}
     </main>
   )
 }
