@@ -13,6 +13,7 @@ export const CardSendFeedback = ({ styles }) => {
   const { employeeList } = useContext(EmployeeContext)
   const { tagsList, postFeedback } = useContext(FeedbackContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedTag, setSelectedTag] = useState([])
   const base64Img = 'data:image/*;base64,'
 
   const handleOpenNewSendFeedbackModal = (employee) => {
@@ -59,18 +60,14 @@ export const CardSendFeedback = ({ styles }) => {
           initialValues={{
             anonimo: false,
             conteudo: '',
-            listaTags: [
-              {
-                idTag: 1
-              }
-            ],
+            listaTags: [],
           }}
           // validationSchema={validateSchema}
           onSubmit={async (
             values,
             { setSubmitting }
           ) => {
-            await postFeedback({ ...values, idFuncionarioDestino: targetEmployee.idFuncionario })
+            await postFeedback({ ...values, idFuncionarioDestino: targetEmployee.idFuncionario, listaTags: selectedTag })
             handleCloseNewSendFeedbackModal()
             setSubmitting(false);
           }}
@@ -86,17 +83,27 @@ export const CardSendFeedback = ({ styles }) => {
 
                 <div>
                   <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
-                  <Field as="select" name="feedbackTags" id="feedbackTags">
+                  <Field multiple={false} as="select" name="tags" id="feedbackTags" onChange={(e) => {
+
+                    !selectedTag.includes(e.target.value) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(e.target.value))
+                  }}>
+
                     {tagsList.map(tag => (
-                      <option name={tag.idTag} key={tag.idTag}>{tag.nomeTag}</option>
+                      <option value={JSON.stringify(tag)} name={tag.idTag} key={tag.idTag}>{tag.nomeTag}</option>
                     ))}
                   </Field>
+
+                  {selectedTag.map((tag, index) => (
+                    selectedTag.includes(tag) &&
+                    <span key={index}>{tag.nomeTag}</span>
+                  ))}
                 </div>
 
                 <div>
                   <Field as="textarea" name="conteudo" id="conteudo"></Field>
                 </div>
                 <div className={styles.sendFeedbackButton}>
+
                   <button type="submit">Enviar</button>
                   <label htmlFor="anonimo">
                     <Field type="checkbox" name="anonimo" id="anonimo" />

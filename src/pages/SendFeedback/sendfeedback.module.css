@@ -173,3 +173,10 @@ button:hover {
   position: relative;
   top: -1px;
 }
+
+.feedbackContent span {
+  margin: 0 .5rem;
+  padding: .25rem;
+  background-color: #1A75C11a;
+  border-radius: .25rem;
+}
