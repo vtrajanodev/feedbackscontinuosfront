@@ -3,15 +3,31 @@ header {
   align-items: center;
   justify-content: space-around;
   margin-bottom: 2rem;
-  padding: 1rem 0;
-  background-color: #dddddd;
+  background-color: #1A75C1;
+  padding: 20px 0;
 }
 
-header img {
-  width: 50px;
+.user {
+  display: flex;
+  color: #FFFF;
+  align-items: center;
+}
+
+.user a {
+  color: #FFF;
+  font-size: 22px;
+}
+
+.user svg {
+  font-size: 28px;
+  margin-top: 5px;
+}
+
+.user img {
   border-radius: 100%;
+  margin-right: 10px;
 }
 
-header a {
-  color: #61CE70;
+.user span {
+  margin-right: 30px;
 }
