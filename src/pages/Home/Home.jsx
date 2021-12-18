@@ -27,7 +27,6 @@ export const Home = () => {
       getFeedbacksEnviados(),
       getTags()
       ]).then(() => setLoading(false))
-
     }
   }, [])
 
