@@ -11,7 +11,6 @@ import { api } from '../../services/api'
 import styles from './home.module.css'
 import { FaHome } from 'react-icons/fa';
 import { BiLike } from 'react-icons/bi';
-import imgPerfil from '../../images/img.jpg';
 
 export const Home = () => {
 
@@ -55,7 +54,7 @@ export const Home = () => {
       </div>
 
       <CardFeedbackRecebido styles={styles} feedbacksRecebidos={feedbacksRecebidos} logo={logo} />
-      {/* <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} /> */}
+      <CardFeedbackEnviado styles={styles} feedbacksEnviados={feedbacksEnviados} logo={logo} navigate={navigate} />
     </main>
   )
 }
