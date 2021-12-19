@@ -14,7 +14,7 @@ import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
 export const LinkRoutes = () => {
 
   const { token } = useContext(AuthContext)
- 
+
 
   return (
     <>
@@ -41,6 +41,7 @@ export const LinkRoutes = () => {
             :
             <Navigate to="/home" />
         } />
+        <Route path="/profile/:id" element={<SendFeedback />} />
       </Routes>
       <Footer />
     </>
