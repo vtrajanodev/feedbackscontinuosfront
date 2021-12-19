@@ -97,7 +97,7 @@ export const CardSendFeedback = ({ styles }) => {
 
                     !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(e.target.value))
                   }}>
-                    <option defaultValue={'tags'} selected>Selecione uma ou mais tags</option>
+                    <option value='default' selected>Selecione uma ou mais tags</option>
                     
                     {tagsList.map(tag => (
                       <option value={JSON.stringify(tag)} name={tag.idTag} key={tag.idTag}>{tag.nomeTag}</option>

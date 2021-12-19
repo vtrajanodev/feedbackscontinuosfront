@@ -1,23 +1,29 @@
-import { Link, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react/cjs/react.development'
 import { CardSendFeedback } from '../../components/CardSendFeedback/CardSendFeedback'
 import { Loading } from '../../components/Loading/Loading'
 import { EmployeeContext } from '../../context/EmployeeContext'
+import { FeedbackContext } from '../../context/FeedbackContext'
 import { api } from '../../services/api'
 import styles from './sendfeedback.module.css'
 
 export const SendFeedback = () => {
 
   const { loading, getEmployee, setLoading } = useContext(EmployeeContext)
+  const { getTags } = useContext(FeedbackContext)
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     const token = sessionStorage.getItem('token')
     if (token) {
       api.defaults.headers.Authorization = token
-      Promise.all([getEmployee()])
+      Promise.all([getEmployee(),
+      getTags()
+      ])
         .then(() => setLoading(false))
     } else {
-      <Navigate to="/login" />
+      navigate('/login')
     }
   }, [])
 

@@ -14,7 +14,7 @@ import { BiLike } from 'react-icons/bi';
 export const Home = () => {
 
   const { employee, getEmployeeInfos } = useContext(AuthContext)
-  const { feedbacksRecebidos, feedbacksEnviados, getFeedbacksRecebidos, getFeedbacksEnviados, getTags, setLoading, loading } = useContext(FeedbackContext)
+  const { feedbacksRecebidos, feedbacksEnviados, getFeedbacksRecebidos, getFeedbacksEnviados, setLoading, loading } = useContext(FeedbackContext)
 
   const navigate = useNavigate()
 
@@ -26,7 +26,6 @@ export const Home = () => {
       Promise.all([getEmployeeInfos(),
       getFeedbacksRecebidos(),
       getFeedbacksEnviados(),
-      getTags()
       ]).then(() => setLoading(false))
     }
   }, [])
