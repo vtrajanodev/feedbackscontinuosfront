@@ -18,11 +18,11 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados }) => 
               <div key={feedback.idFeedback}>
                 <div className={styles.card}>
                   <div>
-                    <img src={`${(feedback.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
+                    <img src={`${feedback.funcionarioDestino.fotoFuncionario === '' ? defaultImage : base64Img + feedback.funcionarioDestino.fotoFuncionario}`} alt=":(" />
                   </div>
                   <div>
                     <div className={styles.cardTitle}>
-                      <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
+                      <h3>{feedback.funcionarioDestino.nome}</h3>
                       <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
                         new Date(feedback.dataFeedback)
                       )}</span>
