@@ -3,12 +3,14 @@ import { useContext, useEffect } from 'react/cjs/react.development'
 import { CardSendFeedback } from '../../components/CardSendFeedback/CardSendFeedback'
 import { Loading } from '../../components/Loading/Loading'
 import { EmployeeContext } from '../../context/EmployeeContext'
+import { FeedbackContext } from '../../context/FeedbackContext'
 import { api } from '../../services/api'
 import styles from './sendfeedback.module.css'
 
 export const SendFeedback = () => {
 
   const { loading, getEmployee, setLoading } = useContext(EmployeeContext)
+  const { getTags } = useContext(FeedbackContext)
   const navigate = useNavigate()
 
 
@@ -16,7 +18,9 @@ export const SendFeedback = () => {
     const token = sessionStorage.getItem('token')
     if (token) {
       api.defaults.headers.Authorization = token
-      Promise.all([getEmployee()])
+      Promise.all([getEmployee(),
+      getTags()
+      ])
         .then(() => setLoading(false))
     } else {
       navigate('/login')
