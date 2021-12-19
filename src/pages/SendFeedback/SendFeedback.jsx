@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react/cjs/react.development'
 import { CardSendFeedback } from '../../components/CardSendFeedback/CardSendFeedback'
 import { Loading } from '../../components/Loading/Loading'
@@ -9,6 +9,8 @@ import styles from './sendfeedback.module.css'
 export const SendFeedback = () => {
 
   const { loading, getEmployee, setLoading } = useContext(EmployeeContext)
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     const token = sessionStorage.getItem('token')
@@ -17,7 +19,7 @@ export const SendFeedback = () => {
       Promise.all([getEmployee()])
         .then(() => setLoading(false))
     } else {
-      <Navigate to="/login" />
+      navigate('/login')
     }
   }, [])
 
