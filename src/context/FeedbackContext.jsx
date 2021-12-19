@@ -11,7 +11,6 @@ export const FeedbackContextProvider = ({ children }) => {
   const [feedbacksEnviados, setFeedbacksEnviados] = useState([])
   const [tagsList, setTagsList] = useState([])
   const [loading, setLoading] = useState(true)
-  const navigate = useNavigate()
 
   const getFeedbacksRecebidos = async () => {
     const { data } = await api.get('/feedbacks/recebidos')
@@ -32,9 +31,7 @@ export const FeedbackContextProvider = ({ children }) => {
     try {
       await api.post('/feedbacks/postar', values)
       alert('Feedback enviado com sucesso!')
-      setTimeout(() => {
-        navigate('/home')
-      }, 1500);
+      window.location.href = '/home'
     } catch (err) {
       console.log('deu erro =>' + err)
     }
