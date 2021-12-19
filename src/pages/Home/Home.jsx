@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
 import { useEffect } from 'react/cjs/react.development'
 import { CardFeedbackEnviado } from '../../components/CardFeedbackEnviado/CardFeedbackEnviado'
 import { CardFeedbackRecebido } from '../../components/CardFeedbackRecebido/CardFeedbackRecebido'
@@ -13,8 +13,11 @@ import { BiLike } from 'react-icons/bi';
 
 export const Home = () => {
 
+  let resolved = useResolvedPath('/home');
+  let match = useMatch({ path: resolved.pathname, end: true });
+
   const { employee, getEmployeeInfos } = useContext(AuthContext)
-  const { feedbacksRecebidos, feedbacksEnviados, getFeedbacksRecebidos, getFeedbacksEnviados, getTags, setLoading, loading } = useContext(FeedbackContext)
+  const { feedbacksRecebidos, feedbacksEnviados, getFeedbacksRecebidos, getFeedbacksEnviados, setLoading, loading } = useContext(FeedbackContext)
 
   const navigate = useNavigate()
 
@@ -26,7 +29,6 @@ export const Home = () => {
       Promise.all([getEmployeeInfos(),
       getFeedbacksRecebidos(),
       getFeedbacksEnviados(),
-      getTags()
       ]).then(() => setLoading(false))
     }
   }, [])
@@ -40,7 +42,7 @@ export const Home = () => {
             </Link>
         <nav>
           <ul>
-            <Link to="/home">
+            <Link to="/home" style={{ color: match ? "black" : "none" }}>
               <span>< FaHome /></span> 
               <li>Home</li>
             </Link>

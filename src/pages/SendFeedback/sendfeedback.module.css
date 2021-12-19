@@ -110,9 +110,9 @@ section.sendFeedbackContainer {
 }
 
 .feedbackContent p {
-  text-align: center;
-  margin-top: 1rem;
+  text-align: left;
   color: rgb(167, 167, 167);
+  margin-bottom: .5rem;
 }
 
 .feedbackType{
@@ -165,6 +165,8 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  margin-top: 20px;
 }
 
 .sendFeedbackButton input[type='checkbox'] {
@@ -179,4 +181,8 @@ button:hover {
   padding: .25rem;
   background-color: #1A75C11a;
   border-radius: .25rem;
+}
+
+.erroSpan {
+  background-color: #fff !important;
 }
