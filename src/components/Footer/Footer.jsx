@@ -12,7 +12,7 @@ export const Footer = () => {
     {token && 
       <footer>
         <div className={styles.footercontainer}>
-          <small>&copy; Copyright David, Fernanda, Guilherme e Victor</small>
+          <small>&copy; Copyright FeedBackStreetBoys {"&"} SpiceGirl</small>
         </div>
       </footer>
     }

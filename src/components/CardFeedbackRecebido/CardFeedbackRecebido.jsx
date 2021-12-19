@@ -11,11 +11,12 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
     <>
       <section className={styles.cardsList}>
         <h2>Feedbacks recebidos</h2>
+        <div className={styles.containerCard}>
         {!feedbacksRecebidos.length ?
           <h4>Poxa! Parece que você ainda não tem feedbacks recebidos.</h4>
           :
           feedbacksRecebidos.map(feedback => (
-            <div key={feedback.idFeedback}>
+            <div className={styles.bgCard} key={feedback.idFeedback}>
               <div className={feedback.visivel ? styles.card : styles.cardInvisible}>
                 <div>
                   <img src={`${(feedback.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
@@ -23,24 +24,29 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
                 <div>
                   <div className={styles.cardTitle}>
                     <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
-                    <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
-                      new Date(feedback.dataFeedback)
-                    )}</span>
                   </div>
                   <div className={styles.cardContent}>
                     <p>{feedback.conteudo}</p>
-                    <button onClick={() => handleEditVisibleStatus(feedback)}>{feedback.visivel ? 'Tornar invisível' : 'Tornar visivel'}</button>
                   </div>
                   <div className={styles.tags}>
                     {feedback.tags.map(tag => (
                       <span key={tag.idTag}>{tag.nomeTag}</span>
-                    ))}
+                      ))}
                   </div>
                 </div>
+              </div>
+              <div className={styles.status}>
+              <button onClick={() => handleEditVisibleStatus(feedback)}>{feedback.visivel ? 'Tornar invisível' : 'Tornar visivel'}</button>
+              </div>
+              <div className={styles.dateStyle}>
+              <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                      new Date(feedback.dataFeedback)
+                    )}</span>
               </div>
             </div>
           ))
         }
+        </div>
       </section>
     </>
   )
