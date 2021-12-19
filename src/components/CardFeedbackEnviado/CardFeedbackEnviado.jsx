@@ -7,7 +7,8 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados }) => 
   return (
     <div>
       <section className={styles.cardsList}>
-        <h1>Feedbacks enviados</h1>
+        <h2>Feedbacks enviados</h2>
+        <div className={styles.containerCard}>
         {
           !feedbacksEnviados.length ?
             <div className={styles.withoutFeedbackEnviado}>
@@ -15,17 +16,16 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados }) => 
             </div>
             :
             feedbacksEnviados.map(feedback => (
-              <div key={feedback.idFeedback}>
+              <div className={styles.bgCard} key={feedback.idFeedback}>
                 <div className={styles.card}>
                   <div>
                     <img src={`${feedback.funcionarioDestino.fotoFuncionario === '' ? defaultImage : base64Img + feedback.funcionarioDestino.fotoFuncionario}`} alt=":(" />
                   </div>
                   <div>
                     <div className={styles.cardTitle}>
+
                       <h3>{feedback.funcionarioDestino.nome}</h3>
-                      <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
-                        new Date(feedback.dataFeedback)
-                      )}</span>
+      
                     </div>
                     <div className={styles.cardContent}>
                       <p>{feedback.conteudo}</p>
@@ -34,10 +34,16 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados }) => 
                       <span key={tag.idTag}>{tag.nomeTag}</span>
                     ))}</div>
                   </div>
-
+                 
+                </div>
+                <div className={styles.dateStyle}> 
+                  <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                      new Date(feedback.dataFeedback)
+                    )}</small> 
                 </div>
               </div>
             ))}
+          </div>
       </section>
     </div>
   )
