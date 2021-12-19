@@ -5,6 +5,8 @@ import Modal from 'react-modal'
 import defaultImage from '../../images/defaultImage.png'
 import { Field, Form, Formik } from "formik"
 import { FeedbackContext } from "../../context/FeedbackContext"
+import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom"
 import * as Yup from 'yup';
 
 
@@ -17,6 +19,7 @@ export const CardSendFeedback = ({ styles }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedTag, setSelectedTag] = useState([])
   const base64Img = 'data:image/*;base64,'
+  const { id } = useParams()
 
   const handleOpenNewSendFeedbackModal = (employee) => {
     setTargetEmployee(employee)
@@ -45,7 +48,9 @@ export const CardSendFeedback = ({ styles }) => {
             </div>
             <div className={styles.cardContent}>
               <div>
-                <h3>{employee.nome}</h3>
+                <Link to="/home">
+                  <h3>{employee.nome}</h3>
+                </Link>
                 <p>{employee.email}</p>
               </div>
               <div>
@@ -94,7 +99,7 @@ export const CardSendFeedback = ({ styles }) => {
                   <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
                   <Field as="select" name="idTag" id="feedbackTags" onChange={(e) => {
 
-                    !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(e.target.value))
+                    !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(selectedTag))
                   }}>
                     <option defaultValue={selectedTag} selected >Selecione uma ou mais tags</option>
 
