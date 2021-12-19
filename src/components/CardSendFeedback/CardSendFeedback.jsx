@@ -5,6 +5,8 @@ import Modal from 'react-modal'
 import defaultImage from '../../images/defaultImage.png'
 import { Field, Form, Formik } from "formik"
 import { FeedbackContext } from "../../context/FeedbackContext"
+import * as Yup from 'yup';
+
 
 Modal.setAppElement('#root')
 export const CardSendFeedback = ({ styles }) => {
@@ -14,6 +16,7 @@ export const CardSendFeedback = ({ styles }) => {
   const { tagsList, postFeedback } = useContext(FeedbackContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedTag, setSelectedTag] = useState([])
+  const [charactersLimit, setCharactersLimit] = useState(0)
   const base64Img = 'data:image/*;base64,'
 
   const handleOpenNewSendFeedbackModal = (employee) => {
@@ -25,6 +28,12 @@ export const CardSendFeedback = ({ styles }) => {
   const handleCloseNewSendFeedbackModal = () => {
     setIsModalOpen(false)
   }
+
+  const validateSchema = Yup.object().shape({
+    conteudo: Yup.string()
+      .min(10, 'Você precisa enviar um feedback com pelo menos 10 caracteres')
+      .max(400, 'Campo com máximo de 400 caracteres')
+  });
 
   return (
     <div className={styles.cardList}>
@@ -54,7 +63,9 @@ export const CardSendFeedback = ({ styles }) => {
         overlayClassName={styles.reactModalOverlay}
         className={styles.reactModalContent}
       >
-        <h4>Envie o seu feedback para nomeDoUsuario</h4>
+        {targetEmployee &&
+          <h4>Envie o seu feedback para {targetEmployee.nome}</h4>
+        }
 
         <Formik
           initialValues={{
@@ -62,7 +73,7 @@ export const CardSendFeedback = ({ styles }) => {
             conteudo: '',
             listaTags: [],
           }}
-          // validationSchema={validateSchema}
+          validationSchema={validateSchema}
           onSubmit={async (
             values,
             { setSubmitting }
@@ -80,14 +91,14 @@ export const CardSendFeedback = ({ styles }) => {
                 </p>
               </div>
               <div className={styles.feedbackContent}>
-
                 <div>
                   <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
-                  <Field multiple={false} as="select" name="tags" id="feedbackTags" onChange={(e) => {
+                  <Field as="select" multiple={false} name="tags" id="feedbackTags" onChange={(e) => {
 
-                    !selectedTag.includes(e.target.value) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(e.target.value))
+                    !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(e.target.value))
                   }}>
-
+                    <option defaultValue={'tags'} selected>Selecione uma ou mais tags</option>
+                    
                     {tagsList.map(tag => (
                       <option value={JSON.stringify(tag)} name={tag.idTag} key={tag.idTag}>{tag.nomeTag}</option>
                     ))}
@@ -100,7 +111,11 @@ export const CardSendFeedback = ({ styles }) => {
                 </div>
 
                 <div>
-                  <Field as="textarea" name="conteudo" id="conteudo"></Field>
+                  <Field as="textarea" name="conteudo" id="conteudo" maxLength={400}></Field>
+                  <p>{props.values.conteudo.length}/400</p>
+                  {(props.errors.conteudo && props.touched.conteudo) && (
+                    <span className={styles.erroSpan}>{props.errors.conteudo}</span>
+                  )}
                 </div>
                 <div className={styles.sendFeedbackButton}>
 

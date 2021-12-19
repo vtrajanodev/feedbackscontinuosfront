@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react/cjs/react.development'
 import { CardSendFeedback } from '../../components/CardSendFeedback/CardSendFeedback'
 import { Loading } from '../../components/Loading/Loading'
@@ -16,6 +16,8 @@ export const SendFeedback = () => {
       api.defaults.headers.Authorization = token
       Promise.all([getEmployee()])
         .then(() => setLoading(false))
+    } else {
+      <Navigate to="/login" />
     }
   }, [])
 

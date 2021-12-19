@@ -6,21 +6,14 @@ import { Home } from "../pages/Home/Home";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
-import { useEffect } from "react/cjs/react.development";
-import { api } from "../services/api";
 
 
 
-export const LinkRoutes = ({ }) => {
+
+export const LinkRoutes = () => {
 
   const { token } = useContext(AuthContext)
-
-  useEffect(() => {
-    const token = sessionStorage.getItem('token')
-    if (token) {
-      api.defaults.headers.common['Authorization'] = token
-    }
-  }, [])
+ 
 
   return (
     <>
