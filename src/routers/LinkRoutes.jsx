@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { RegisterUser } from '../pages/RegisterUser/RegisterUser';
 import { Login } from '../pages/Login/Login';
 import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
 import { Home } from "../pages/Home/Home";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -48,6 +49,7 @@ export const LinkRoutes = ({ }) => {
             <Navigate to="/home" />
         } />
       </Routes>
+      <Footer />
     </>
   )
 }
