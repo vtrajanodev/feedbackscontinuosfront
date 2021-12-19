@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { api } from "../services/api";
 
 export const FeedbackContext = createContext()
@@ -34,8 +34,7 @@ export const FeedbackContextProvider = ({ children }) => {
       alert('Feedback enviado com sucesso!')
       setTimeout(() => {
         navigate('/home')
-      }, 1000);
-      navigate('/home')
+      }, 1500);
     } catch (err) {
       console.log('deu erro =>' + err)
     }
