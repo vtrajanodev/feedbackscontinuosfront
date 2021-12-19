@@ -27,9 +27,7 @@ export const AuthContextProvider = ({ children }) => {
   const handleLogin = async (employee) => {
     try {
       const response = await api.post('/funcionario/login', employee)
-      console.log(response)
       const token = response.data
-      console.log(token)
       sessionStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)

@@ -16,13 +16,11 @@ export const CardSendFeedback = ({ styles }) => {
   const { tagsList, postFeedback } = useContext(FeedbackContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedTag, setSelectedTag] = useState([])
-  const [charactersLimit, setCharactersLimit] = useState(0)
   const base64Img = 'data:image/*;base64,'
 
   const handleOpenNewSendFeedbackModal = (employee) => {
     setTargetEmployee(employee)
     setIsModalOpen(true)
-    console.log(employee)
   }
 
   const handleCloseNewSendFeedbackModal = () => {
@@ -93,11 +91,11 @@ export const CardSendFeedback = ({ styles }) => {
               <div className={styles.feedbackContent}>
                 <div>
                   <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
-                  <Field as="select" multiple={false} name="tags" id="feedbackTags" onChange={(e) => {
+                  <Field as="select"  name="idTag" id="feedbackTags" onChange={(e) => {
 
                     !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(e.target.value))
                   }}>
-                    <option value='default' selected>Selecione uma ou mais tags</option>
+                    <option defaultValue={selectedTag} selected >Selecione uma ou mais tags</option>
                     
                     {tagsList.map(tag => (
                       <option value={JSON.stringify(tag)} name={tag.idTag} key={tag.idTag}>{tag.nomeTag}</option>

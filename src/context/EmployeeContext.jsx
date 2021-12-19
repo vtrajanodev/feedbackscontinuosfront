@@ -14,13 +14,11 @@ export const EmployeeContextProvider = ({ children }) => {
       const response = await api.post('/funcionario/cadastro', employee)
       console.log(response.data)
     } catch (err) {
-      console.log(err)
     }
   }
 
   const getEmployee = async () => {
     const { data } = await api.get('/funcionario')
-    console.log(data)
     setEmployeeList(data)
   }
 

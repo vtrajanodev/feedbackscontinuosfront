@@ -15,27 +15,22 @@ export const FeedbackContextProvider = ({ children }) => {
 
   const getFeedbacksRecebidos = async () => {
     const { data } = await api.get('/feedbacks/recebidos')
-    console.log(data)
     setFeedbacksRecebidos(data)
   }
 
   const getFeedbacksEnviados = async () => {
     const { data } = await api.get('feedbacks/enviados')
-    console.log(data)
     setFeedbacksEnviados(data)
   }
 
   const getTags = async () => {
     const { data } = await api.get('/tags/lista-tags')
-    console.log(data)
     setTagsList(data)
   }
 
   const postFeedback = async (values) => {
-    console.log(values)
     try {
-      const { data } = await api.post('/feedbacks/postar', values)
-      console.log(data)
+      await api.post('/feedbacks/postar', values)
       alert('Feedback enviado com sucesso!')
       setTimeout(() => {
         navigate('/home')
@@ -47,13 +42,11 @@ export const FeedbackContextProvider = ({ children }) => {
   }
 
   const handleEditVisibleStatus = async (feedback) => {
-    
+
     if (feedback.visivel) {
-      const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
-      console.log(data)
+      await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
     } else {
-      const { data } = await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
-      console.log(data)
+      await api.put(`/feedbacks/alterar-visivel/${feedback.idFeedback}`)
     }
     getFeedbacksRecebidos()
   }
