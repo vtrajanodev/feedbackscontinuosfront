@@ -14,7 +14,7 @@ Modal.setAppElement('#root')
 export const CardSendFeedback = ({ styles }) => {
 
   const [targetEmployee, setTargetEmployee] = useState()
-  const { employeeList } = useContext(EmployeeContext)
+  const { employeeList, getEmployee } = useContext(EmployeeContext)
   const { tagsList, postFeedback } = useContext(FeedbackContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedTag, setSelectedTag] = useState([])
@@ -48,7 +48,7 @@ export const CardSendFeedback = ({ styles }) => {
             </div>
             <div className={styles.cardContent}>
               <div>
-                <Link to="/home">
+                <Link to="/home" onClick={() => getEmployee(employee.idFuncionario)}>
                   <h3>{employee.nome}</h3>
                 </Link>
                 <p>{employee.email}</p>
