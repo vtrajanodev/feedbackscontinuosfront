@@ -16,7 +16,6 @@ main .mainHeader {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #e2e2e2;
-  height: 50px;
 }
 
 .mainHeader p {
