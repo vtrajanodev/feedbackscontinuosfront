@@ -21,12 +21,6 @@ export const Header = () => {
               <Link to="/home">
                 <img src={FeedbacksLogo} alt="Feedbacks_Logo" width="150px"/>            
               </Link>
-              <span>
-              </span>
-              <Link to="/login" onClick={handleLogout}>
-                <HiOutlineLogout/>
-                <p>Sair</p>
-              </Link>
               <div className={styles.user}>
               <Link to="/home">
                 <img src={ employee.fotoFuncionario ? base64Img + employee.fotoFuncionario : imgPerfil} alt="Imagem de perfil" />

@@ -39,7 +39,7 @@ export const CardSendFeedback = ({ styles }) => {
 
   return (
     <div className={styles.cardList}>
-      <h1>Enviar feedback</h1>
+      <h2>Enviar feedback</h2>
       {employeeList.map(employee => (
         <div key={employee.idFuncionario}>
           <div className={styles.card}>

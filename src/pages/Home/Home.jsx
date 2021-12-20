@@ -37,9 +37,11 @@ export const Home = () => {
     <main>
       {loading && <Loading />}
       <div className={styles.mainHeader}>
-            <Link to="/home">
-            Boas-vindas, {employee.nome}!
-            </Link>
+            <p>
+              <Link to="/home">
+              Boas-vindas, {employee.nome}!
+              </Link>
+            </p>
         <nav>
           <ul>
             <Link to="/home" style={{ color: match ? "black" : "none" }}>
