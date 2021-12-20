@@ -12,9 +12,9 @@ export const EmployeeContextProvider = ({ children }) => {
 
   const handleRegisterEmployee = async (employee) => {
     try {
-      const response = await api.post('/funcionario/cadastro', employee)
-      console.log(response.data)
+      await api.post('/funcionario/cadastro', employee)
     } catch (err) {
+      console.log(err)
     }
   }
 
@@ -28,7 +28,6 @@ export const EmployeeContextProvider = ({ children }) => {
     setEmployeeProfile(data)
   }
 
- 
 
   const handlePostEmployeeImage = async (img) => {
     const upload = new FormData();

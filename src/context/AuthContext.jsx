@@ -27,11 +27,14 @@ export const AuthContextProvider = ({ children }) => {
   const handleLogin = async (employee) => {
     try {
       const response = await api.post('/funcionario/login', employee)
+      console.log(response.data)
       const token = response.data
       sessionStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
-      navigate('/home')
+      setTimeout(() => {
+        navigate('/home')
+      }, 500);
     } catch (err) {
       alert('Campos login e/ou senha incorretos.')
     }
