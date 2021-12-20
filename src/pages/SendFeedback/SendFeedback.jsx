@@ -1,5 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useContext, useEffect } from 'react/cjs/react.development'
+import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
+import { useContext, useEffect } from 'react'
 import { CardSendFeedback } from '../../components/CardSendFeedback/CardSendFeedback'
 import { Loading } from '../../components/Loading/Loading'
 import { EmployeeContext } from '../../context/EmployeeContext'
@@ -11,6 +11,9 @@ import { BiLike } from 'react-icons/bi'
 import { AuthContext } from '../../context/AuthContext'
 
 export const SendFeedback = () => {
+
+  let resolved = useResolvedPath('/enviar-feedback');
+  let match = useMatch({ path: resolved.pathname, end: true });
 
   const { loading, getAllEmployees, setLoading } = useContext(EmployeeContext)
   const { getTags } = useContext(FeedbackContext)
@@ -43,11 +46,11 @@ export const SendFeedback = () => {
           <p>Envie feedback sobre um colaborador</p>
           <nav>
             <ul>
-              <Link to="/home">
+              <Link to="/home" >
                 <span>< FaHome /></span>
-                <li>Home</li>
+                <li>Home</li> 
               </Link>
-              <Link to="/enviar-feedback" >
+              <Link to="/enviar-feedback" style={{ color: match ? "black" : "none" }}>
                 <span>< BiLike /></span>
                 <li>Enviar</li>
               </Link>

@@ -6,7 +6,6 @@ import defaultImage from '../../images/defaultImage.png'
 import { Field, Form, Formik } from "formik"
 import { FeedbackContext } from "../../context/FeedbackContext"
 import { Link } from 'react-router-dom';
-import { useParams } from "react-router-dom"
 import * as Yup from 'yup';
 
 
@@ -14,12 +13,11 @@ Modal.setAppElement('#root')
 export const CardSendFeedback = ({ styles }) => {
 
   const [targetEmployee, setTargetEmployee] = useState()
-  const { employeeList } = useContext(EmployeeContext)
+  const { employeeList, getEmployee } = useContext(EmployeeContext)
   const { tagsList, postFeedback } = useContext(FeedbackContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedTag, setSelectedTag] = useState([])
   const base64Img = 'data:image/*;base64,'
-  const { id } = useParams()
 
   const handleOpenNewSendFeedbackModal = (employee) => {
     setTargetEmployee(employee)
@@ -48,7 +46,7 @@ export const CardSendFeedback = ({ styles }) => {
             </div>
             <div className={styles.cardContent}>
               <div>
-                <Link to="/home">
+                <Link to="/profile" onClick={() => getEmployee(employee.idFuncionario)}>
                   <h3>{employee.nome}</h3>
                 </Link>
                 <p>{employee.email}</p>
