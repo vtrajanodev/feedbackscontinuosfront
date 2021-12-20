@@ -25,7 +25,7 @@ export const EmployeeContextProvider = ({ children }) => {
 
   const getEmployee = async (id) => {
     const { data } = await api.get(`/funcionario/${id}`)
-    setEmployeeProfile(data)
+    setEmployeeProfile([data])
   }
 
 

@@ -34,7 +34,7 @@ export const Home = () => {
         ])
         .then(() => setLoading(false))
     }
-  }, [getEmployeeInfos])
+  }, [employee])
 
   return (
     <main>
@@ -48,11 +48,15 @@ export const Home = () => {
         <nav>
           <ul>
             <Link to="/home" style={{ color: match ? "black" : "none" }}>
-              <span>< FaHome /></span>
+              <span>
+                <FaHome />
+              </span>
               <li>Home</li>
             </Link>
             <Link to="/enviar-feedback">
-              <span>< BiLike /></span>
+              <span>
+                <BiLike />  
+              </span>
               <li>Enviar</li>
             </Link>
           </ul>

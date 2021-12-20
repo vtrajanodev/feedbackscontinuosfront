@@ -16,5 +16,32 @@
 }
 
 .profileEmployeeContent p {
-  color: #ccc;
+  color: rgb(168, 168, 168);
+}
+
+.titles {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  width: 900px;
+}
+
+.titles nav ul {
+  display: flex;
+}
+
+.titles ul span {
+  margin-left: 1rem;
+}
+
+.titles a {
+  color: var(--blue);
+  margin-left: 2rem;
+}
+
+.cardsList {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #F7F7F7;
+  height: 500px;
 }

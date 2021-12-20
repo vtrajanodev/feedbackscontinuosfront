@@ -1,4 +1,4 @@
-import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
+import { Link, useMatch, useNavigate,  useResolvedPath } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 import { CardSendFeedback } from '../../components/CardSendFeedback/CardSendFeedback'
 import { Loading } from '../../components/Loading/Loading'
@@ -20,7 +20,6 @@ export const SendFeedback = () => {
   const { getEmployeeInfos } = useContext(AuthContext)
   const navigate = useNavigate()
 
-
   useEffect(() => {
     const token = sessionStorage.getItem('token')
     if (token) {
@@ -28,7 +27,7 @@ export const SendFeedback = () => {
       Promise.all([
         getAllEmployees(),
         getTags(),
-        getEmployeeInfos()
+        getEmployeeInfos(),
       ])
         .then(() => setLoading(false))
     } else {

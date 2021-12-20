@@ -42,7 +42,7 @@ export const LinkRoutes = () => {
             :
             <Navigate to="/home" />
         } />
-        <Route path="/profile/" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Routes>
       <Footer />
     </>

@@ -46,7 +46,7 @@ export const CardSendFeedback = ({ styles }) => {
             </div>
             <div className={styles.cardContent}>
               <div>
-                <Link to="/profile" onClick={() => getEmployee(employee.idFuncionario)}>
+                <Link to={`/profile/${employee.idFuncionario}`} onClick={() => getEmployee(employee.idFuncionario)}>
                   <h3>{employee.nome}</h3>
                 </Link>
                 <p>{employee.email}</p>
