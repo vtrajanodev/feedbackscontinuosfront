@@ -26,10 +26,10 @@ export const Login = () => {
             <div className={styles.signIn}>
               <div className={styles.handleNavigateToRegister}>
                 <h3>Sistema de Feedbacks</h3>
-                <Link to="/cadastro-usuario">Não possuo cadastro</Link>
               </div>
             </div>
             <div className={styles.registerForm}>
+              
               <h1>Acesse sua conta</h1>
               <div>
                 <Field id="email" name="email" placeholder="Usuário: " />
@@ -46,6 +46,10 @@ export const Login = () => {
               <div className={styles.buttonSubmit}>
                 <button type="submit">Login</button>
               </div>
+               <small>
+               <small>Não possui cadastro?</small>
+               <Link to="/cadastro-usuario">Clique aqui</Link>
+               </small> 
             </div>
           </div>
         </Form>
