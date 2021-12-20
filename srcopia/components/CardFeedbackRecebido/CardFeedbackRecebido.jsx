@@ -18,17 +18,21 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
           feedbacksRecebidos.map(feedback => (
             <div className={styles.bgCard} key={feedback.idFeedback}>
               <div className={feedback.visivel ? styles.card : styles.cardInvisible}>
-                <div className={styles.cardTitle}>
+                <div>
                   <img src={`${(feedback.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImage : base64Img + feedback.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
-                  <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
                 </div>
-                <div className={styles.cardContent}>
-                  <p>{feedback.conteudo}</p>
-                </div>
-                <div className={styles.tags}>
-                  {feedback.tags.map(tag => (
-                    <span key={tag.idTag}>{tag.nomeTag}</span>
-                    ))}
+                <div>
+                  <div className={styles.cardTitle}>
+                    <h3>{!feedback.anonimo === true ? feedback.funcionarioOrigem.nome : 'Anônimo'}</h3>
+                  </div>
+                  <div className={styles.cardContent}>
+                    <p>{feedback.conteudo}</p>
+                  </div>
+                  <div className={styles.tags}>
+                    {feedback.tags.map(tag => (
+                      <span key={tag.idTag}>{tag.nomeTag}</span>
+                      ))}
+                  </div>
                 </div>
               </div>
               <div className={styles.status}>
