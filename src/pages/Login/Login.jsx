@@ -37,7 +37,7 @@ export const Login = () => {
               </div>
 
               <div>
-                <Field id="senha" name="senha" placeholder="Senha: " />
+                <Field type="password" id="senha" name="senha" placeholder="Senha: " />
                 < RiLockPasswordLine />
                   
               </div>
