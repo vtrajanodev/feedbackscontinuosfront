@@ -27,7 +27,7 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados }) => 
                       <p>{feedback.conteudo}</p>
                     </div>
                     <div className={styles.tags}>{feedback.tags.map(tag => (
-                      <span key={tag.idTag}>{tag.nomeTag}</span>
+                      <span key={tag.idTag}>{'#' + tag.nomeTag}</span>
                     ))}</div>
                   </div>
                 </div>

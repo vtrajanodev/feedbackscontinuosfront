@@ -5,6 +5,8 @@ import Modal from 'react-modal'
 import defaultImage from '../../images/defaultImage.png'
 import { Field, Form, Formik } from "formik"
 import { FeedbackContext } from "../../context/FeedbackContext"
+import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom"
 import * as Yup from 'yup';
 
 
@@ -16,13 +18,12 @@ export const CardSendFeedback = ({ styles }) => {
   const { tagsList, postFeedback } = useContext(FeedbackContext)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedTag, setSelectedTag] = useState([])
-  const [charactersLimit, setCharactersLimit] = useState(0)
   const base64Img = 'data:image/*;base64,'
+  const { id } = useParams()
 
   const handleOpenNewSendFeedbackModal = (employee) => {
     setTargetEmployee(employee)
     setIsModalOpen(true)
-    console.log(employee)
   }
 
   const handleCloseNewSendFeedbackModal = () => {
@@ -33,6 +34,7 @@ export const CardSendFeedback = ({ styles }) => {
     conteudo: Yup.string()
       .min(10, 'Você precisa enviar um feedback com pelo menos 10 caracteres')
       .max(400, 'Campo com máximo de 400 caracteres')
+      .required('Conteúdo obrigatório')
   });
 
   return (
@@ -46,7 +48,9 @@ export const CardSendFeedback = ({ styles }) => {
             </div>
             <div className={styles.cardContent}>
               <div>
-                <h3>{employee.nome}</h3>
+                <Link to="/home">
+                  <h3>{employee.nome}</h3>
+                </Link>
                 <p>{employee.email}</p>
               </div>
               <div>
@@ -93,12 +97,12 @@ export const CardSendFeedback = ({ styles }) => {
               <div className={styles.feedbackContent}>
                 <div>
                   <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
-                  <Field as="select" multiple={false} name="tags" id="feedbackTags" onChange={(e) => {
+                  <Field as="select" name="idTag" id="feedbackTags" onChange={(e) => {
 
-                    !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(e.target.value))
+                    !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(selectedTag))
                   }}>
-                    <option value='default' selected>Selecione uma ou mais tags</option>
-                    
+                    <option defaultValue={selectedTag} selected >Selecione uma ou mais tags</option>
+
                     {tagsList.map(tag => (
                       <option value={JSON.stringify(tag)} name={tag.idTag} key={tag.idTag}>{tag.nomeTag}</option>
                     ))}
@@ -106,16 +110,16 @@ export const CardSendFeedback = ({ styles }) => {
 
                   {selectedTag.map((tag, index) => (
                     selectedTag.includes(tag) &&
-                    <span key={index}>{tag.nomeTag}</span>
+                    <span key={index}>{'#' + tag.nomeTag}</span>
                   ))}
                 </div>
 
                 <div>
                   <Field as="textarea" name="conteudo" id="conteudo" maxLength={400}></Field>
-                  <p>{props.values.conteudo.length}/400</p>
                   {(props.errors.conteudo && props.touched.conteudo) && (
-                    <span className={styles.erroSpan}>{props.errors.conteudo}</span>
+                    <small className={styles.erroSpan}>{props.errors.conteudo}</small>
                   )}
+                  <p>{props.values.conteudo.length}/400</p>
                 </div>
                 <div className={styles.sendFeedbackButton}>
 
