@@ -19,19 +19,19 @@ export const Header = () => {
           <div className='container'>
             <div className={styles.contentFlex}>
               <Link to="/home">
-                <img src={FeedbacksLogo} alt="Feedbacks_Logo" width="150px"/>            
+                <img src={FeedbacksLogo} alt="Feedbacks_Logo" width="150px" />
               </Link>
               <div className={styles.user}>
-              <Link to="/home">
-                <img src={ employee.fotoFuncionario ? base64Img + employee.fotoFuncionario : imgPerfil} alt="Imagem de perfil" />
-              </Link>
-              <span>
-                {employee.nome}
-              </span>
-                  <Link to="/login" onClick={handleLogout}>
-                    <HiOutlineLogout/>
-                    <p>Sair</p>
-                  </Link>
+                <Link to="/home">
+                  <img src={employee.fotoFuncionario ? base64Img + employee.fotoFuncionario : imgPerfil} alt="Imagem de perfil" />
+                </Link>
+                <span>
+                  {employee.nome}
+                </span>
+                <button onClick={handleLogout}>
+                  <HiOutlineLogout />
+                  <p>Sair</p>
+                </button>
               </div>
             </div>
           </div>

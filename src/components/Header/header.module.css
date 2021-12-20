@@ -14,8 +14,11 @@ header {
   color: #FFFF;
   align-items: center;
 }
-.user a {
+.user button {
   color: #FFF;
+  border: none;
+  background-color: rgba(55, 38, 204, 0);
+  cursor: pointer;
 }
 
 .user p {
