@@ -110,7 +110,7 @@ export const RegisterUser = () => {
                 <div className={styles.fileLabel}>
                   <label htmlFor="file">Foto de perfil</label>
                   <Field type="file" id="file" name="foto" accept="image/*" onChange={(event) => onChangeUpload(event)} />
-                  <small>< GoCloudUpload /></small>
+                  <span>< GoCloudUpload /></span>
                 </div>
                 <div className={styles.buttonSubmit}>
                   <button type="submit">Cadastrar</button>

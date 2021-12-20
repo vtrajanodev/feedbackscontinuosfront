@@ -26,10 +26,12 @@ export const Home = () => {
 
     if (token) {
       api.defaults.headers.Authorization = token
-      Promise.all([getEmployeeInfos(),
-      getFeedbacksRecebidos(),
-      getFeedbacksEnviados(),
-      ])
+      Promise.all(
+        [
+          getEmployeeInfos(),
+          getFeedbacksRecebidos(),
+          getFeedbacksEnviados(),
+        ])
         .then(() => setLoading(false))
     }
   }, [])
