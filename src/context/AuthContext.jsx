@@ -17,7 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   })
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
     if (token) {
       api.defaults.headers.Authorization = token
       setIsAuthenticated(true)
@@ -32,9 +32,7 @@ export const AuthContextProvider = ({ children }) => {
       sessionStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
-      setTimeout(() => {
-        navigate('/home')
-      }, 500);
+      navigate('/home')
     } catch (err) {
       alert('Campos login e/ou senha incorretos.')
     }
@@ -55,12 +53,13 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   const handleLogout = () => {
-    const logout = sessionStorage.removeItem('token')
+    sessionStorage.removeItem('token')
+    sessionStorage.clear()
 
-    if (localStorage.getItem('token') === null) {
+    if (sessionStorage.getItem('token') === null) {
       setIsAuthenticated(false)
     }
-    return logout
+    window.location.href = '/login'
   }
   return (
     <AuthContext.Provider value={{ handleLogin, isAuthenticated, handleLogout, setIsAuthenticated, employee, token, getEmployeeInfos }}>

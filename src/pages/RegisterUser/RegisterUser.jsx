@@ -59,17 +59,14 @@ export const RegisterUser = () => {
           values,
           { setSubmitting }
         ) => {
+
+          await handleRegisterEmployee(values)
           const login = {
             email: values.email,
             senha: values.senha
           }
-          Promise.all([
-            await handleRegisterEmployee(values),
-            await handleLogin(login)
-          ])
-            .then(() => {
-              handlePostEmployeeImage(fileUpload)
-            })
+          await handleLogin(login)
+          await handlePostEmployeeImage(fileUpload)
           setSubmitting(false);
         }}
       >

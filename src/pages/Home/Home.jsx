@@ -28,13 +28,13 @@ export const Home = () => {
       api.defaults.headers.Authorization = token
       Promise.all(
         [
-          getEmployeeInfos(),
           getFeedbacksRecebidos(),
           getFeedbacksEnviados(),
+          getEmployeeInfos(),
         ])
         .then(() => setLoading(false))
     }
-  }, [])
+  }, [getEmployeeInfos])
 
   return (
     <main>

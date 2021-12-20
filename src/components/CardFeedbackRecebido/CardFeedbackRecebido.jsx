@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { FeedbackContext } from "../../context/FeedbackContext"
 import defaultImage from '../../images/defaultImage.png'
 
-export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos, logo }) => {
+export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos }) => {
 
   const { handleEditVisibleStatus } = useContext(FeedbackContext)
   const base64Img = 'data:image/*;base64,'
