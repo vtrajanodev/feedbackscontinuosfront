@@ -7,6 +7,7 @@ export const EmployeeContext = createContext()
 export const EmployeeContextProvider = ({ children }) => {
 
   const [employeeList, setEmployeeList] = useState([])
+  const [employeeProfile, setEmployeeProfile] = useState([])
   const [loading, setLoading] = useState(true)
 
   const handleRegisterEmployee = async (employee) => {
@@ -24,7 +25,7 @@ export const EmployeeContextProvider = ({ children }) => {
 
   const getEmployee = async (id) => {
     const { data } = await api.get(`/funcionario/${id}`)
-    console.log(data)
+    setEmployeeProfile(data)
   }
 
  
@@ -38,7 +39,7 @@ export const EmployeeContextProvider = ({ children }) => {
   }
 
   return (
-    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getAllEmployees, getEmployee }}>
+    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getAllEmployees, getEmployee, employeeProfile }}>
       {children}
     </EmployeeContext.Provider>
   );

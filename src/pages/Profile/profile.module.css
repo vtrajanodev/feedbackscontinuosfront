@@ -1,0 +1,20 @@
+.profileContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profileContainer img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-right: 2rem;
+}
+
+.profileEmployeeContent {
+  display: flex;
+  align-items: center;
+}
+
+.profileEmployeeContent p {
+  color: #ccc;
+}

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { EmployeeContext } from '../../context/EmployeeContext';
 import * as Yup from 'yup';
 import styles from '../styles/loginAndRegister.module.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { useState } from 'react/cjs/react.development';
 import { GoCloudUpload } from 'react-icons/go';
@@ -14,7 +14,6 @@ export const RegisterUser = () => {
   const [fileUpload, setFileUpload] = useState()
   const { handleRegisterEmployee, handlePostEmployeeImage } = useContext(EmployeeContext)
   const { handleLogin } = useContext(AuthContext)
-  const navigate = useNavigate()
 
 
   const validateSchema = Yup.object().shape({
@@ -85,33 +84,33 @@ export const RegisterUser = () => {
                 <div>
                   <Field id="nome" name="nome" placeholder="Nome completo" maxLength='56' />
                   {(props.errors.nome && props.touched.nome) && (
-                    <span>{props.errors.nome}</span>
+                    <small>{props.errors.nome}</small>
                   )}
                 </div>
 
                 <div>
                   <Field id="email" name="email" placeholder="Email" />
                   {(props.errors.email && props.touched.email) && (
-                    <span>{props.errors.email}</span>
+                    <small>{props.errors.email}</small>
                   )}
                 </div>
                 <div>
                   <Field id="senha" name="senha" placeholder="Senha" />
                   <PasswordStrengthBar password={props.values.senha} className={styles.bar} shortScoreWord={'Muito curta'} scoreWords={['fraca', 'moderada', 'forte', 'ideal']} minLength={3} maxLength={16} scoreWordClassName='classe'/>
                   {(props.errors.senha && props.touched.senha) && (
-                    <span>{props.errors.senha}</span>
+                    <small>{props.errors.senha}</small>
                   )}
                 </div>
                 <div>
                   <Field id="senhaConfirm" name="senhaConfirm" placeholder="Confirmação de senha" />
                   {props.errors.senhaConfirm && (
-                    <span>{props.errors.senhaConfirm}</span>
+                    <small>{props.errors.senhaConfirm}</small>
                   )}
                 </div>                
                 <div className={styles.fileLabel}>
                   <label htmlFor="file">Foto de perfil</label>
                   <Field type="file" id="file" name="foto" accept="image/*" onChange={(event) => onChangeUpload(event)} />
-                  <span>< GoCloudUpload /></span>
+                  <small>< GoCloudUpload /></small>
                 </div>
                 <div className={styles.buttonSubmit}>
                   <button type="submit">Cadastrar</button>

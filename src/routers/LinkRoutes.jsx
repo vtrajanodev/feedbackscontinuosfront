@@ -7,6 +7,7 @@ import { Home } from "../pages/Home/Home";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
+import { Profile } from "../pages/Profile/Profile";
 
 
 
@@ -41,7 +42,7 @@ export const LinkRoutes = () => {
             :
             <Navigate to="/home" />
         } />
-        <Route path="/profile/:id" element={<SendFeedback />} />
+        <Route path="/profile/" element={<Profile />} />
       </Routes>
       <Footer />
     </>
