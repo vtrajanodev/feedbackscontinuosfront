@@ -2,9 +2,9 @@ import { Formik, Field, Form } from 'formik';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
-import Logo from '../../images/logo.png';
 import styles from '../styles/loginAndRegister.module.css';
-
+import { BiUserCircle } from 'react-icons/bi';
+import { RiLockPasswordLine } from 'react-icons/ri';
 
 export const Login = () => {
 
@@ -24,9 +24,6 @@ export const Login = () => {
         <Form>
           <div className={styles.content}>
             <div className={styles.signIn}>
-              <div>
-                <img src={Logo} alt="logo" />
-              </div>
               <div className={styles.handleNavigateToRegister}>
                 <h3>Sistema de Feedbacks</h3>
                 <Link to="/cadastro-usuario">Não possuo cadastro</Link>
@@ -36,10 +33,12 @@ export const Login = () => {
               <h1>Acesse sua conta</h1>
               <div>
                 <Field id="email" name="email" placeholder="Usuário: " />
+                < BiUserCircle />
               </div>
 
               <div>
                 <Field id="senha" name="senha" placeholder="Senha: " />
+                < RiLockPasswordLine />
               </div>
               <div>
               </div>

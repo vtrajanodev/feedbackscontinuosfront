@@ -1,28 +1,35 @@
 section.sendFeedbackContainer {
-  max-width: 1120px;
-  background-color: #228de421;
+  max-width: 1200px;
   margin: 0 auto;
+  background-color: #F7F7F7;
   margin-bottom: 4rem;
   padding-bottom: 2rem;
-
 }
 
 .sendFeedbackHeader {
   padding: 1rem 0 ;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e2e2e2;
   color: #1A75C1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 4rem
+  margin: 0 1rem
 }
 
 .sendFeedbackHeader a {
-  color: black;
+  color: var(--blue);
+}
+
+.sendFeedbackHeader ul span {
+  margin-left: 6px;
+}
+
+.sendFeedbackHeader ul li {
+  font-size: 10px;
 }
 
 .cardList {
-  max-width: 920px;
+  max-width: 1120px;
   margin: 2rem auto;
   justify-content: center;
   border-bottom: 1px solid #ccc;
@@ -49,7 +56,7 @@ section.sendFeedbackContainer {
   display: flex;
   justify-content: space-between;
   align-items: center ;
-  width: 700px;
+  width: 900px;
   margin: 0 auto;
   color: #1A75C1;
 }
@@ -67,6 +74,12 @@ section.sendFeedbackContainer {
 
 .cardContent p {
   color: rgb(163, 163, 163);
+}
+
+.cardList h2 {
+  font-size: 1.2rem;
+  margin: 2rem;
+  color: #666;
 }
 
 .reactModalOverlay{

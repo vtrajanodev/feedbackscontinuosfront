@@ -75,10 +75,6 @@ export const RegisterUser = () => {
           <Form>
             <div className={styles.content}>
               <div className={styles.signIn}>
-                <div>
-                  <img src={Logo} alt="logo" />
-                </div>
-
                 <div className={styles.handleNavigateToLogin}>
                   <h3>Sistema de Feedbacks</h3>
                   <p>Ja possui cadastro?</p>

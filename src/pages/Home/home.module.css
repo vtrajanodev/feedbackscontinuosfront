@@ -23,11 +23,11 @@ main ul {
 }
 
 main ul span {
-  margin-left: 6px;
+  margin-left: 2.3rem;
 }
 
 main ul li {
-  margin-right: 2rem;
+  margin-left: 2rem;
   margin-bottom: 1rem;
   font-size: 10px;
 }
@@ -75,7 +75,6 @@ main p, a {
   min-height: 298px;
 }
 
-
 .card h3, .cardInvisible h3 {
   color: #666;
   font-size: 16px;
@@ -92,6 +91,8 @@ main p, a {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: solid 1px #CCC;
+  padding-bottom: 5px;
 }
 
 .containerCard {
