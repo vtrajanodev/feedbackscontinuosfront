@@ -7,6 +7,7 @@ import { FeedbackContext } from '../../context/FeedbackContext'
 import { api } from '../../services/api'
 import styles from './sendfeedback.module.css'
 import { FaHome } from 'react-icons/fa'
+import { BiLike } from 'react-icons/bi'
 
 export const SendFeedback = () => {
 
@@ -36,12 +37,18 @@ export const SendFeedback = () => {
       <section className={styles.sendFeedbackContainer}>
         <div className={styles.sendFeedbackHeader}>
           <p>Envie feedback sobre um colaborador</p>
+          <nav>
           <ul>
-          <Link to="/home">
+            <Link to="/home">
               <span>< FaHome /></span> 
               <li>Home</li>
-          </Link>
+            </Link>
+            <Link to="/enviar-feedback" >
+              <span>< BiLike /></span> 
+              <li>Enviar</li>
+            </Link>
           </ul>
+          </nav>
         </div>
         <CardSendFeedback styles={styles} />
       </section>

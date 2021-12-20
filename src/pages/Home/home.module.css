@@ -18,6 +18,10 @@ main .mainHeader {
   border-bottom: 1px solid #e2e2e2;
 }
 
+.mainHeader p {
+  margin-top: 10px;
+}
+
 main ul {
   display: flex;
 }

@@ -13,19 +13,29 @@ section.sendFeedbackContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 1rem
+  margin: 0 1rem;
+}
+
+.sendFeedbackHeader p {
+  margin-top: -10px;
 }
 
 .sendFeedbackHeader a {
   color: var(--blue);
 }
 
-.sendFeedbackHeader ul span {
-  margin-left: 6px;
+.sendFeedbackHeader ul {
+  display: flex;
 }
 
 .sendFeedbackHeader ul li {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
   font-size: 10px;
+}
+
+.sendFeedbackHeader ul span {
+  margin-left: 2.3rem;
 }
 
 .cardList {

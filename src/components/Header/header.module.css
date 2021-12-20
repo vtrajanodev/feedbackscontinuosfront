@@ -1,5 +1,7 @@
 header {
-  background-color: #1A75C1;
+  background-image: url('../../images/background.png');
+  background-size: 800px;
+  background-position:left;
 }
 .contentFlex {
   display: flex;
