@@ -6,8 +6,8 @@
 }
 
 .content {
-  width: 960px;
-  height: 500px;
+  width: 1000px;
+  height: 550px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,8 +18,8 @@
 .signIn {
   width: 40%;
   background-image: url('../../images/fundo.png');
-  background-position: 50% 50%;
-  background-size: 900px;
+  background-position: 50%;
+  background-size: 950px;
   padding: 2rem;
   border-radius: 1rem 0 0 1rem;
   height: 100%;
@@ -115,10 +115,15 @@
   margin-left: 3.4rem;
 }
 
+.registerForm input::placeholder {
+  color: var(--blue);
+}
+
 .registerForm svg {
   position: absolute;
   margin-left: 370px;
   margin-top: -30px;
+  color: var(--blue);
 }
 
 .strengthStatus {
