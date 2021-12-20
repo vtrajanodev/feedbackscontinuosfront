@@ -17,10 +17,12 @@ export const EmployeeContextProvider = ({ children }) => {
     }
   }
 
-  const getEmployee = async () => {
+  const getAllEmployees = async () => {
     const { data } = await api.get('/funcionario')
     setEmployeeList(data)
   }
+
+ 
 
   const handlePostEmployeeImage = async (img) => {
     const upload = new FormData();
@@ -31,7 +33,7 @@ export const EmployeeContextProvider = ({ children }) => {
   }
 
   return (
-    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getEmployee }}>
+    <EmployeeContext.Provider value={{ handleRegisterEmployee, employeeList, loading, setLoading, handlePostEmployeeImage, getAllEmployees }}>
       {children}
     </EmployeeContext.Provider>
   );

@@ -8,11 +8,13 @@ import { api } from '../../services/api'
 import styles from './sendfeedback.module.css'
 import { FaHome } from 'react-icons/fa'
 import { BiLike } from 'react-icons/bi'
+import { AuthContext } from '../../context/AuthContext'
 
 export const SendFeedback = () => {
 
-  const { loading, getEmployee, setLoading } = useContext(EmployeeContext)
+  const { loading, getAllEmployees, setLoading } = useContext(EmployeeContext)
   const { getTags } = useContext(FeedbackContext)
+  const { getEmployeeInfos } = useContext(AuthContext)
   const navigate = useNavigate()
 
 
@@ -20,8 +22,10 @@ export const SendFeedback = () => {
     const token = sessionStorage.getItem('token')
     if (token) {
       api.defaults.headers.Authorization = token
-      Promise.all([getEmployee(),
-      getTags()
+      Promise.all([
+        getAllEmployees(),
+        getTags(),
+        getEmployeeInfos()
       ])
         .then(() => setLoading(false))
     } else {
@@ -38,16 +42,16 @@ export const SendFeedback = () => {
         <div className={styles.sendFeedbackHeader}>
           <p>Envie feedback sobre um colaborador</p>
           <nav>
-          <ul>
-            <Link to="/home">
-              <span>< FaHome /></span> 
-              <li>Home</li>
-            </Link>
-            <Link to="/enviar-feedback" >
-              <span>< BiLike /></span> 
-              <li>Enviar</li>
-            </Link>
-          </ul>
+            <ul>
+              <Link to="/home">
+                <span>< FaHome /></span>
+                <li>Home</li>
+              </Link>
+              <Link to="/enviar-feedback" >
+                <span>< BiLike /></span>
+                <li>Enviar</li>
+              </Link>
+            </ul>
           </nav>
         </div>
         <CardSendFeedback styles={styles} />

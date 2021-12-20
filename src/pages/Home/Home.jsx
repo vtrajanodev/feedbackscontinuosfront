@@ -29,7 +29,8 @@ export const Home = () => {
       Promise.all([getEmployeeInfos(),
       getFeedbacksRecebidos(),
       getFeedbacksEnviados(),
-      ]).then(() => setLoading(false))
+      ])
+        .then(() => setLoading(false))
     }
   }, [])
 
@@ -37,19 +38,19 @@ export const Home = () => {
     <main>
       {loading && <Loading />}
       <div className={styles.mainHeader}>
-            <p>
-              <Link to="/home">
-              Boas-vindas, {employee.nome}!
-              </Link>
-            </p>
+        <p>
+          <Link to="/home">
+            Boas-vindas, {employee.nome}!
+          </Link>
+        </p>
         <nav>
           <ul>
             <Link to="/home" style={{ color: match ? "black" : "none" }}>
-              <span>< FaHome /></span> 
+              <span>< FaHome /></span>
               <li>Home</li>
             </Link>
             <Link to="/enviar-feedback">
-              <span>< BiLike /></span> 
+              <span>< BiLike /></span>
               <li>Enviar</li>
             </Link>
           </ul>
