@@ -47,7 +47,8 @@ export const Login = () => {
                 <button type="submit">Login</button>
               </div>
                <small>
-               <Link to="/cadastro-usuario">Não possui cadastro? Clique aqui</Link>
+               <small>Não possui cadastro?</small>
+               <Link to="/cadastro-usuario">Clique aqui</Link>
                </small> 
             </div>
           </div>
