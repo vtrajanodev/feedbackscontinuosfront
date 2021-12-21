@@ -95,19 +95,24 @@ export const Profile = () => {
                         <h3>{!recebidos.anonimo === true ? recebidos.funcionarioOrigem.nome : 'Anônimo'}</h3>
                       </div>
 
-                      <div className={styles.cardContent}>
-                        <p>{recebidos.conteudo}</p>
+                      <div className={styles.cardContentFlex}>
+                        <div>
+                          <div className={styles.cardContent}>
+                            <p>{recebidos.conteudo}</p>
+                          </div>
+                          <div className={styles.tags}>
+                            {recebidos.tags.map(tag => (
+                              <span key={tag.idTag}>{'#' + tag.nomeTag}</span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className={styles.dateStyle}>
+                          <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                            new Date(recebidos.dataFeedback)
+                          )}</span>
+                        </div>
                       </div>
-                      <div className={styles.tags}>
-                        {recebidos.tags.map(tag => (
-                          <span key={tag.idTag}>{'#' + tag.nomeTag}</span>
-                        ))}
-                      </div>
-                      <div className={styles.dateStyle}>
-                        <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
-                          new Date(recebidos.dataFeedback)
-                        )}</span>
-                      </div>
+
                     </div>
                   ))}
                 </div>
