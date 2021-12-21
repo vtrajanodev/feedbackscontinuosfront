@@ -2,7 +2,7 @@ import { Field, Form, Formik } from 'formik';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useContext } from 'react';
 import { EmployeeContext } from '../../context/EmployeeContext';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 import styles from '../styles/loginAndRegister.module.css';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
@@ -16,22 +16,22 @@ export const RegisterUser = () => {
   const { handleLogin } = useContext(AuthContext)
 
 
-  // const validateSchema = Yup.object().shape({
-  //   nome: Yup.string()
-  //     .min(10, 'Nome muito curto!')
-  //     .max(55, 'Campo com máximo de 55 caracteres')
-  //     .required('Nome é um campo obrigatório'),
-  //   email: Yup.string()
-  //     .min(10, 'Email muito curto')
-  //     .max(70, 'Email muito longo')
-  //     .matches(/@dbccompany\.com.br$/, 'Dominio @dbccompany.com.br obrigatório')
-  //     .required('Email é um campo obrigatório'),
-  //   senha: Yup.string()
-  //     .min(8, 'A senha deve conter pelo menos 8 caracteres')
-  //     .required('Senha é um campo obrigatório'),
-  //   senhaConfirm: Yup.string()
-  //     .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
-  // });
+  const validateSchema = Yup.object().shape({
+    nome: Yup.string()
+      .min(10, 'Nome muito curto!')
+      .max(55, 'Campo com máximo de 55 caracteres')
+      .required('Nome é um campo obrigatório'),
+    email: Yup.string()
+      .min(10, 'Email muito curto')
+      .max(70, 'Email muito longo')
+      .matches(/@dbccompany\.com.br$/, 'Dominio @dbccompany.com.br obrigatório')
+      .required('Email é um campo obrigatório'),
+    senha: Yup.string()
+      .min(8, 'A senha deve conter pelo menos 8 caracteres')
+      .required('Senha é um campo obrigatório'),
+    senhaConfirm: Yup.string()
+      .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
+  });
 
 
   const onChangeUpload = (event) => {
@@ -54,7 +54,7 @@ export const RegisterUser = () => {
           foto: '',
           senhaConfirm: ''
         }}
-        // validationSchema={validateSchema}
+        validationSchema={validateSchema}
         onSubmit={async (
           values,
           { setSubmitting }
@@ -96,14 +96,14 @@ export const RegisterUser = () => {
                   )}
                 </div>
                 <div>
-                  <Field id="senha" name="senha" placeholder="Senha" />
+                  <Field type="password" id="senha" name="senha" placeholder="Senha" />
                   <PasswordStrengthBar password={props.values.senha} className={styles.bar} shortScoreWord={'Muito curta'} scoreWords={['fraca', 'moderada', 'forte', 'ideal']} minLength={3} maxLength={16} scoreWordClassName='classe' />
                   {(props.errors.senha && props.touched.senha) && (
                     <small>{props.errors.senha}</small>
                   )}
                 </div>
                 <div>
-                  <Field id="senhaConfirm" name="senhaConfirm" placeholder="Confirmação de senha" />
+                  <Field type="password" id="senhaConfirm" name="senhaConfirm" placeholder="Confirmação de senha" />
                   {props.errors.senhaConfirm && (
                     <small>{props.errors.senhaConfirm}</small>
                   )}
