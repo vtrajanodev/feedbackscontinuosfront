@@ -13,7 +13,7 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos }) => {
         <h2>Feedbacks recebidos</h2>
         <div className={styles.containerCard}>
           {!feedbacksRecebidos.length ?
-            <h4>Você ainda não recebeu nenhum feedback</h4>
+            <h4>Você ainda não recebeu nenhum feedback.</h4>
             :
             feedbacksRecebidos.map(feedback => (
               <div className={styles.bgCard} key={feedback.idFeedback}>

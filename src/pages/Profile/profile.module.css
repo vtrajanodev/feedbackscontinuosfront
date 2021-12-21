@@ -68,7 +68,7 @@
   color: #999;
   font-size: 14px;
   height: 160px;
-  text-align: center;
+  text-align: justify;
   margin-top: 20px;
   word-break: break-word;
 }
@@ -87,6 +87,11 @@ section.cardsContainer {
   flex-flow: row wrap;
   justify-content: flex-start;
   margin: 0 3.5rem;
+}
+
+.cardsList h4 {
+  margin-top: 2rem;
+  color: #1A75C1;
 }
 
 .cardTitle {

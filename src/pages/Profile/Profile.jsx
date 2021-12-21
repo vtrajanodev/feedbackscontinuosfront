@@ -52,7 +52,6 @@ export const Profile = () => {
         ))}
       </section >
 
-
       <section className={styles.cardsContainer}>
         <div className={styles.profileTitles}>
           <p>Feedbacks recebidos</p>
@@ -78,34 +77,36 @@ export const Profile = () => {
         </div>
 
         <div>
-          {(!employeeProfile.length) ?
-            <h4>Poxa! Parece que você ainda não tem feedbacks recebidos.</h4>
-            :
+          {
             employeeProfile.map(feedback => (
               <div key={feedback.idFeedback}>
                 <div className={styles.cardsList}>
-                  {feedback.recebidos.map(recebidos => (
-                    <div key={recebidos.idFeedback} className={styles.card}>
-                      <div className={styles.cardTitle}>
-                        <img src={`${(recebidos.funcionarioOrigem.fotoFuncionario === '') || (recebidos.anonimo === true) ? defaultImg : base64Img + recebidos.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
-                        <h3>{!recebidos.anonimo === true ? recebidos.funcionarioOrigem.nome : 'Anônimo'}</h3>
-                      </div>
+                  {
+                    !feedback.recebidos.length ?
+                      <h4>Este funcionário ainda não recebeu nenhum feedback.</h4>
+                      :
+                      feedback.recebidos.map(recebidos => (
+                        <div key={recebidos.idFeedback} className={styles.card}>
+                          <div className={styles.cardTitle}>
+                            <img src={`${(recebidos.funcionarioOrigem.fotoFuncionario === '') || (recebidos.anonimo === true) ? defaultImg : base64Img + recebidos.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
+                            <h3>{!recebidos.anonimo === true ? recebidos.funcionarioOrigem.nome : 'Anônimo'}</h3>
+                          </div>
 
-                      <div className={styles.cardContent}>
-                        <p>{recebidos.conteudo}</p>
-                      </div>
-                      <div className={styles.tags}>
-                        {recebidos.tags.map(tag => (
-                          <span key={tag.idTag}>{'#' + tag.nomeTag}</span>
-                        ))}
-                      </div>
-                      <div className={styles.dateStyle}>
-                        <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
-                          new Date(recebidos.dataFeedback)
-                        )}</small>
-                      </div>
-                    </div>
-                  ))}
+                          <div className={styles.cardContent}>
+                            <p>{recebidos.conteudo}</p>
+                          </div>
+                          <div className={styles.tags}>
+                            {recebidos.tags.map(tag => (
+                              <span key={tag.idTag}>{'#' + tag.nomeTag}</span>
+                            ))}
+                          </div>
+                          <div className={styles.dateStyle}>
+                            <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                              new Date(recebidos.dataFeedback)
+                            )}</small>
+                          </div>
+                        </div>
+                      ))}
                 </div>
 
               </div>
