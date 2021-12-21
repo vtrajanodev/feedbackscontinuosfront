@@ -200,12 +200,23 @@ button:hover {
 }
 
 .feedbackContent span {
-  margin: 0 .5rem;
-  padding: .25rem;
-  background-color: #1A75C11a;
-  border-radius: .25rem;
+  margin: 12px 10px 0 10px;
+  background-color:cornflowerblue;
+  color: var(--white);
+  font-size: 12px;
+  padding: .15rem .5rem;
+  border-radius: .5rem;
+  height: 20px;
 }
 
 .erroSpan {
   background-color: #fff !important;
 }
+
+.tagX {
+  cursor: grabbing;
+}
+
+.feedbackContent select:disabled {
+  cursor: no-drop;
+} 

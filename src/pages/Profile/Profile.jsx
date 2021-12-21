@@ -5,10 +5,10 @@ import { Loading } from '../../components/Loading/Loading'
 import { AuthContext } from '../../context/AuthContext'
 import { EmployeeContext } from '../../context/EmployeeContext'
 import { api } from '../../services/api'
-import styles from './profile.module.css'
 import defaultImg from '../../images/defaultImage.png'
 import { FaHome } from 'react-icons/fa'
 import { BiLike } from 'react-icons/bi'
+import styles from './profile.module.css'
 
 export const Profile = () => {
 
