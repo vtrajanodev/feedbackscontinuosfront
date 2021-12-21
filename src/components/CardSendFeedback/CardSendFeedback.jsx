@@ -96,7 +96,7 @@ export const CardSendFeedback = ({ styles }) => {
               <div className={styles.feedbackContent}>
                 <div>
                   <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
-                  <Field as="select" name="idTag" id="feedbackTags" onChange={(e) => {
+                  <Field disabled={selectedTag.length === 3} as="select" name="idTag" id="feedbackTags" onChange={(e) => {
 
                     !selectedTag.includes(JSON.stringify(e.target.value)) ? setSelectedTag([...selectedTag, JSON.parse(e.target.value)]) : setSelectedTag(JSON.parse(selectedTag))
                   }}>

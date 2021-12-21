@@ -75,6 +75,7 @@
 
 section.cardsContainer {
   width: 1200px;
+  min-height: calc(100vh - 362px);
   margin: 0 auto;
   background-color: #F7F7F7;
   border-radius: .5rem;
