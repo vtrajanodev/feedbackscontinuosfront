@@ -158,7 +158,7 @@
 .fileLabel span svg {
   position: absolute;
   margin-left: 253px;
-  margin-top: -25px;
+  margin-top: -30px;
   color: var(--blue);
 }
 
@@ -197,4 +197,80 @@
 
 .scoreWordClassName {
   color: #1A75C1;
+}
+
+
+@media (max-width: 990px) {
+  .signIn {
+    display: none;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .registerUserContainer {
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid black;
+  }
+
+  .content {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 650px) {
+  .signIn {
+    display: none;
+  }
+
+  .content {
+    max-width: 550px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .registerUserContainer {
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid black;
+  }
+
+  .content {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .registerForm input {
+    width: 250px;
+  }
+
+  .registerForm svg {
+    margin-left: 220px;
+  }
+
+  .buttonSubmit {
+    width: 190px;
+  }
+
+  .registerForm input[type="password"] {
+    margin-right: 9rem;
+  }
+  .fileLabel label{
+    margin: 0;
+  }
+
+  .fileLabel span svg {
+    position: absolute;
+    margin-left: 110px;
+    margin-top: -25px;
+    color: var(--blue);
+  }
+  
 }

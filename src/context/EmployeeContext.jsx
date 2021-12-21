@@ -19,13 +19,17 @@ export const EmployeeContextProvider = ({ children }) => {
   }
 
   const getAllEmployees = async () => {
+    setLoading(true)
     const { data } = await api.get('/funcionario')
     setEmployeeList(data)
+    setLoading(false)
   }
 
   const getEmployee = async (id) => {
+    setLoading(true)
     const { data } = await api.get(`/funcionario/${id}`)
     setEmployeeProfile([data])
+    setLoading(false)
   }
 
 
