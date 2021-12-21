@@ -32,7 +32,7 @@ export const CardFeedbackEnviado = ({ styles, navigate, feedbacksEnviados }) => 
                     </div>
                   </div>
                   <div className={styles.dateStyle}>
-                    <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                    <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full' }).format(
                       new Date(feedback.dataFeedback)
                     )}</small>
                   </div>

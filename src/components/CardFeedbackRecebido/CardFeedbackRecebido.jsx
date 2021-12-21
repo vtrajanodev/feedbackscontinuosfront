@@ -35,7 +35,7 @@ export const CardFeedbackRecebido = ({ styles, feedbacksRecebidos }) => {
                   <button onClick={() => handleEditVisibleStatus(feedback)}>{feedback.visivel ? 'Tornar invisível' : 'Tornar visivel'}</button>
                 </div>
                 <div className={styles.dateStyle}>
-                  <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                  <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full' }).format(
                     new Date(feedback.dataFeedback)
                   )}
                   </small>

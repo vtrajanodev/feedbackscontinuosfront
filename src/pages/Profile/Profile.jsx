@@ -104,7 +104,7 @@ export const Profile = () => {
                             ))}
                           </div>
                           <div className={styles.dateStyle}>
-                            <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                            <small> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full'}).format(
                               new Date(recebidos.dataFeedback)
                             )}</small>
                           </div>
