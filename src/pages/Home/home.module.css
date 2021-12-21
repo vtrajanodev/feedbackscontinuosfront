@@ -50,7 +50,8 @@ main p, a {
 }
 
 .cardsList h4 {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-left: 4rem;
 }
 
 .card {
@@ -143,15 +144,17 @@ main p, a {
 }
 
 .withoutFeedbackEnviado button {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-left: 4rem;
   height: 30px;
   width: 220px;
   border-radius: .25rem;
   cursor: pointer;
   border: none;
-  background-color: #fff;
+  background-color: rgb(243, 243, 243);
   color: #1A75C1;
   font-weight: bold;
+  box-shadow: 2px 2px #ccc;
 }
 
 .tags {

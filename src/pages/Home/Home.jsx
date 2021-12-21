@@ -47,7 +47,7 @@ export const Home = () => {
         </p>
         <nav>
           <ul>
-            <Link to="/home" style={{ color: match ? "black" : "none" }}>
+            <Link to="/home" style={{ color: match ? "#4B0082" : "none", fontWeight: "900" }}>
               <span>
                 <FaHome />
               </span>

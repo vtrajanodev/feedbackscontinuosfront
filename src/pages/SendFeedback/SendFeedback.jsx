@@ -49,7 +49,7 @@ export const SendFeedback = () => {
                 <span>< FaHome /></span>
                 <li>Home</li> 
               </Link>
-              <Link to="/enviar-feedback" style={{ color: match ? "black" : "none" }}>
+              <Link to="/enviar-feedback" style={{ color: match ? "#4B0082" : "none", fontWeight: "900" }}>
                 <span>< BiLike /></span>
                 <li>Enviar</li>
               </Link>
