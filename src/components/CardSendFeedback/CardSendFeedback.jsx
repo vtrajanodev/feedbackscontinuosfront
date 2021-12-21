@@ -26,6 +26,7 @@ export const CardSendFeedback = ({ styles }) => {
 
   const handleCloseNewSendFeedbackModal = () => {
     setIsModalOpen(false)
+    setSelectedTag([])
   }
 
   const validateSchema = Yup.object().shape({
@@ -108,7 +109,7 @@ export const CardSendFeedback = ({ styles }) => {
 
                   {selectedTag.map((tag, index) => (
                     selectedTag.includes(tag) &&
-                    <span key={index}>{'#' + tag.nomeTag}</span>
+                    <span className={styles.tagX} key={index}>{'#' + tag.nomeTag}</span>
                   ))}
                 </div>
 

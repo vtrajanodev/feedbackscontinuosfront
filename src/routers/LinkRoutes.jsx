@@ -9,14 +9,10 @@ import { AuthContext } from "../context/AuthContext";
 import { SendFeedback } from "../pages/SendFeedback/SendFeedback";
 import { Profile } from "../pages/Profile/Profile";
 
-
-
-
 export const LinkRoutes = () => {
 
   const { token } = useContext(AuthContext)
-
-
+  
   return (
     <>
       <Header />

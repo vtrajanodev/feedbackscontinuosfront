@@ -46,10 +46,6 @@ export const Profile = () => {
                   <h2>{employee.nome}</h2>
                   <p>{employee.email}</p>
                 </div>
-                <div>
-                  <button>Enviar feedback</button>
-                </div>
-
               </div>
             </div>
           </div>

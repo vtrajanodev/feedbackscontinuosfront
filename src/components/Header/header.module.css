@@ -40,3 +40,9 @@ header {
 .user span {
   margin-right: 50px;
 }
+
+@media (max-width: 1200px) {
+  .contentFlex {
+    margin: 0 2rem;
+  }
+}
