@@ -66,6 +66,7 @@ main p, a {
   min-height: 150px;
   border-radius: .40rem;
   word-break: break-word;
+  box-shadow: 2px 2px #ccc;
 }
 
 .dateStyle {
