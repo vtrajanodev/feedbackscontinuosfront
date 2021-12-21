@@ -13,10 +13,20 @@
 .profileEmployeeContent {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
+  background-image: url('../../images/bgperfil.png');
+  background-repeat: repeat;
+  background-color: #0f4d80;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.profileEmployeeContent h2 {
+  color: #fff;
 }
 
 .profileEmployeeContent p {
-  color: rgb(168, 168, 168);
+  color: rgb(167, 167, 167);
 }
 
 .profileTitles {
@@ -46,11 +56,32 @@
   margin-left: 2rem;
 }
 
+.sendFeedback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 900px;
+}
+
+.sendFeedback button {
+  height: 30px;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 1rem;
+  border: none;
+  font-weight: 600;
+  color: #1A75C1;
+  background-color: d8dee6;
+  margin-top: 1rem;
+}
+
 section.cardsContainer {
   width: 1200px;
   height: 900px;
   margin: 0 auto;
   background-color: #F7F7F7;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
 }
 
 .cardsList {
@@ -68,8 +99,8 @@ section.cardsContainer {
 
 
 .cardTitle img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
   margin-right: 2rem;
 }

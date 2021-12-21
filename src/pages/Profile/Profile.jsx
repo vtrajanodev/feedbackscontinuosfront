@@ -41,9 +41,15 @@ export const Profile = () => {
               <img src={employee.fotoFuncionario ? base64Img + employee.fotoFuncionario : defaultImg} alt="imagem de perfil" />
             </div>
             <div className={styles.titles}>
-              <div>
-                <h2>{employee.nome}</h2>
-                <p>{employee.email}</p>
+              <div className={styles.sendFeedback}>
+                <div>
+                  <h2>{employee.nome}</h2>
+                  <p>{employee.email}</p>
+                </div>
+                <div>
+                  <button>Enviar feedback</button>
+                </div>
+
               </div>
             </div>
           </div>
