@@ -4,6 +4,7 @@ main {
   background-color: #F7F7F7;
   border-radius: .25rem;
   padding: 1rem 1rem;
+  min-height: calc(100vh - 177px);
 }
 
 main h2 {
@@ -112,9 +113,9 @@ main p, a {
 .cardContent p {
   color: #999;
   font-size: 14px;
-  height: 160px;
+  height: 150px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .status {
@@ -152,14 +153,15 @@ main p, a {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  height: 80px;
+  height: 60px;
+  margin-top: 10px;
 }
 
 .tags span {
-  margin: 10px 10px 10px 0;
+  margin: 12px 10px 0px 0;
   background-color:cornflowerblue;
   color: var(--white);
-  font-size: 14px;
+  font-size: 12px;
   padding: .15rem .5rem;
   border-radius: .5rem;
   height: 20px;
