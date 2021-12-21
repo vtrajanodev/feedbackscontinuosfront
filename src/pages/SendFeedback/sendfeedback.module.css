@@ -209,3 +209,11 @@ button:hover {
 .erroSpan {
   background-color: #fff !important;
 }
+
+.tagX {
+  cursor: grabbing;
+}
+
+.feedbackContent select:disabled {
+  cursor: no-drop;
+}
