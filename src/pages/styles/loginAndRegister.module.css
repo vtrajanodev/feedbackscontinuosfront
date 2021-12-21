@@ -126,6 +126,9 @@
   margin-top: -30px;
   color: var(--blue);
 }
+.registerForm small {
+  color: red;
+}
 
 .strengthStatus {
   border: 1px solid #b4b4b4;

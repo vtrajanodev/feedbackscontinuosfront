@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { Loading } from '../../components/Loading/Loading'
 import { AuthContext } from '../../context/AuthContext'
@@ -13,6 +13,7 @@ import styles from './profile.module.css'
 export const Profile = () => {
 
   const base64Img = 'data:image/*;base64,'
+  const navigate = useNavigate()
   const { employeeProfile, getEmployee, setLoading, loading } = useContext(EmployeeContext)
   const { getEmployeeInfos, token } = useContext(AuthContext)
   const { id } = useParams()
@@ -26,6 +27,8 @@ export const Profile = () => {
         getEmployee(id)
       ])
         .then(() => setLoading(false))
+    } else {
+      navigate('/login')
     }
   }, [])
 
