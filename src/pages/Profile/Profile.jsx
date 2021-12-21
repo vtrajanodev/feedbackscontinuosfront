@@ -48,46 +48,70 @@ export const Profile = () => {
             </div>
           </div>
         ))}
+      </section >
 
-        <div className={styles.profileFeedbacks}>
-          <section className={styles.cardsList}>
-            <h2>Feedbacks recebidos</h2>
-            <div className={styles.containerCard}>
-              {(!employeeProfile.length) ?
-                <h4>Poxa! Parece que você ainda não tem feedbacks recebidos.</h4>
-                :
-                employeeProfile.map(feedback => (
-                  <div className={styles.bgCard} key={feedback.idFeedback}>
-                    <div>
+
+      <section className={styles.cardsContainer}>
+        <div className={styles.profileTitles}>
+          <p>Feedbacks recebidos</p>
+          <div>
+            <nav>
+              <ul>
+                <Link to="/home" >
+                  <span>
+                    <FaHome />
+                  </span>
+                  <li>Home</li>
+                </Link>
+
+                <Link to="/enviar-feedback">
+                  <span>
+                    <BiLike />
+                  </span>
+                  <li>Enviar</li>
+                </Link>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div>
+          {(!employeeProfile.length) ?
+            <h4>Poxa! Parece que você ainda não tem feedbacks recebidos.</h4>
+            :
+            employeeProfile.map(feedback => (
+              <div key={feedback.idFeedback}>
+                <div className={styles.cardsList}>
+                  {feedback.recebidos.map(recebidos => (
+                    <div key={recebidos.idFeedback} className={styles.card}>
                       <div className={styles.cardTitle}>
-                        {feedback.recebidos.map(recebidos => (
-                          <div key={recebidos.idFeedback}>
-                            <img src={`${(recebidos.funcionarioOrigem.fotoFuncionario === '') || (feedback.anonimo === true) ? defaultImg : base64Img + recebidos.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
-                            <h3>{!recebidos.anonimo === true ? recebidos.funcionarioOrigem.nome : 'Anônimo'}</h3>
-                            <div className={styles.cardContent}>
-                              <p>{feedback.conteudo}</p>
-                            </div>
-                            <div className={styles.tags}>
-                              {recebidos.tags.map(tag => (
-                                <span key={tag.idTag}>{'#' + tag.nomeTag}</span>
-                              ))}
-                            </div>
-                            <div className={styles.dateStyle}>
-                              <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
-                                new Date(recebidos.dataFeedback)
-                              )}</span>
-                            </div>
-                          </div>
+                        <img src={`${(recebidos.funcionarioOrigem.fotoFuncionario === '') || (recebidos.anonimo === true) ? defaultImg : base64Img + recebidos.funcionarioOrigem.fotoFuncionario}`} alt=":(" />
+                        <h3>{!recebidos.anonimo === true ? recebidos.funcionarioOrigem.nome : 'Anônimo'}</h3>
+                      </div>
+
+                      <div className={styles.cardContent}>
+                        <p>{recebidos.conteudo}</p>
+                      </div>
+                      <div className={styles.tags}>
+                        {recebidos.tags.map(tag => (
+                          <span key={tag.idTag}>{'#' + tag.nomeTag}</span>
                         ))}
                       </div>
+                      <div className={styles.dateStyle}>
+                        <span> {new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full', timeStyle: 'medium' }).format(
+                          new Date(recebidos.dataFeedback)
+                        )}</span>
+                      </div>
                     </div>
-                  </div>
-                ))
-              }
-            </div>
-          </section>
+                  ))}
+                </div>
+
+              </div>
+            ))
+          }
         </div>
-      </section >
+      </section>
+
     </>
   )
 }

@@ -34,7 +34,7 @@ export const Home = () => {
         ])
         .then(() => setLoading(false))
     }
-  }, [employee])
+  }, [])
 
   return (
     <main>

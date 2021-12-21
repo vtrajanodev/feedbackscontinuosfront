@@ -32,7 +32,9 @@ export const AuthContextProvider = ({ children }) => {
       sessionStorage.setItem('token', token)
       api.defaults.headers.common['Authorization'] = token
       setIsAuthenticated(true)
-      navigate('/home')
+      setTimeout(() => {
+        navigate('/home')
+      }, 500);
     } catch (err) {
       alert('Campos login e/ou senha incorretos.')
     }
