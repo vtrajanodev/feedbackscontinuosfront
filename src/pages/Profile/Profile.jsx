@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { Loading } from '../../components/Loading/Loading'
 import { AuthContext } from '../../context/AuthContext'
 import { EmployeeContext } from '../../context/EmployeeContext'
+import { FeedbackContext } from '../../context/FeedbackContext'
 import { api } from '../../services/api'
 import styles from './profile.module.css'
 import defaultImg from '../../images/defaultImage.png'
@@ -46,10 +47,6 @@ export const Profile = () => {
                   <h2>{employee.nome}</h2>
                   <p>{employee.email}</p>
                 </div>
-                <div>
-                  <button>Enviar feedback</button>
-                </div>
-
               </div>
             </div>
           </div>
@@ -122,7 +119,6 @@ export const Profile = () => {
           }
         </div>
       </section>
-
     </>
   )
 }
