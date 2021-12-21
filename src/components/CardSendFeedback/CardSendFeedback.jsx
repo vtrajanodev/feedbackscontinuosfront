@@ -19,6 +19,7 @@ export const CardSendFeedback = ({ styles }) => {
   const [selectedTag, setSelectedTag] = useState([])
   const base64Img = 'data:image/*;base64,'
 
+
   const handleOpenNewSendFeedbackModal = (employee) => {
     setTargetEmployee(employee)
     setIsModalOpen(true)
@@ -35,6 +36,11 @@ export const CardSendFeedback = ({ styles }) => {
       .max(400, 'Campo com máximo de 400 caracteres')
       .required('Conteúdo obrigatório')
   });
+
+  const deleteTag = (idTag) => {
+    const tagRemovida = selectedTag.filter(tags => tags.idTag !== idTag)
+    setSelectedTag(tagRemovida)
+  }
 
   return (
     <div className={styles.cardList}>
@@ -109,7 +115,7 @@ export const CardSendFeedback = ({ styles }) => {
 
                   {selectedTag.map((tag, index) => (
                     selectedTag.includes(tag) &&
-                    <span className={styles.tagX} key={index}>{'#' + tag.nomeTag}</span>
+                    <span onClick={() => deleteTag(tag.idTag)} className={styles.tagX} key={index}>{'#' + tag.nomeTag}</span>
                   ))}
                 </div>
 
