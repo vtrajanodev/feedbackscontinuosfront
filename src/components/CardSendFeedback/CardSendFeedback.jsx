@@ -103,7 +103,6 @@ export const CardSendFeedback = ({ styles }) => {
                 <div>
                   <small>- Selecione de 1 a 3 tags <br/></small>
                   <small>- Clique em uma tag para removê-la<br/></small>
-                  <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
                   <label  className={styles.disable} htmlFor="feedbackTags">Selecione uma tag: </label> <br />
                   <Field disabled={selectedTag.length === 3} as="select" name="idTag" id="feedbackTags" onChange={(e) => {
 
@@ -123,11 +122,11 @@ export const CardSendFeedback = ({ styles }) => {
                 </div>
 
                 <div>
-                  <Field as="textarea" name="conteudo" id="conteudo" maxLength={400}></Field>
+                  <Field as="textarea" name="conteudo" id="conteudo" maxLength={225}></Field>
                   {(props.errors.conteudo && props.touched.conteudo) && (
                     <small className={styles.erroSpan}>{props.errors.conteudo}</small>
                   )}
-                  <p>{props.values.conteudo.length}/400</p>
+                  <p>{props.values.conteudo.length}/225</p>
                 </div>
                 <div className={styles.sendFeedbackButton}>
 
