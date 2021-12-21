@@ -137,4 +137,5 @@ section.cardsContainer {
   height: 380px;
   background-color: #fff;
   border-radius: .25rem;
+  box-shadow: 2px 2px #ccc;
 }
