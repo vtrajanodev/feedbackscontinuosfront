@@ -18,19 +18,22 @@ export const RegisterUser = () => {
 
   const validateSchema = Yup.object().shape({
     nome: Yup.string()
+      .matches(/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, 'Apenas letras e acentos permitidos')
       .min(10, 'Nome muito curto!')
       .max(55, 'Campo com máximo de 55 caracteres')
       .required('Nome é um campo obrigatório'),
     email: Yup.string()
-      .min(10, 'Email muito curto')
-      .max(70, 'Email muito longo')
       .matches(/@dbccompany\.com.br$/, 'Dominio @dbccompany.com.br obrigatório')
+      .min(21, 'Email muito curto')
+      .max(70, 'Email muito longo')
       .required('Email é um campo obrigatório'),
     senha: Yup.string()
       .min(8, 'A senha deve conter pelo menos 8 caracteres')
       .required('Senha é um campo obrigatório'),
     senhaConfirm: Yup.string()
+      .required('Confirmação de senha obrigatório')
       .oneOf([Yup.ref('senha'), null], 'As senhas devem ser iguais'),
+
   });
 
 
@@ -97,14 +100,14 @@ export const RegisterUser = () => {
                 </div>
                 <div>
                   <Field type="password" id="senha" name="senha" placeholder="Senha" />
-                  <PasswordStrengthBar password={props.values.senha} className={styles.bar} shortScoreWord={'Muito curta'} scoreWords={['fraca', 'moderada', 'forte', 'ideal']} minLength={3} maxLength={16} scoreWordClassName='classe' />
                   {(props.errors.senha && props.touched.senha) && (
                     <small>{props.errors.senha}</small>
                   )}
+                  <PasswordStrengthBar password={props.values.senha} className={styles.bar} shortScoreWord={'Muito curta'} scoreWords={['fraca', 'moderada', 'forte', 'ideal']} minLength={3} maxLength={16} scoreWordClassName='classe' />
                 </div>
                 <div>
                   <Field type="password" id="senhaConfirm" name="senhaConfirm" placeholder="Confirmação de senha" />
-                  {props.errors.senhaConfirm && (
+                  {(props.errors.senhaConfirm && props.touched.senha) && (
                     <small>{props.errors.senhaConfirm}</small>
                   )}
                 </div>

@@ -86,6 +86,9 @@
   background-color: #F7F7F7;
 }
 
+
+
+
 .registerForm h1 {
   text-align: center;
   margin-bottom: 1rem;
@@ -179,7 +182,7 @@
   background-color: #1A75C1;
   color: var(--white);
   border: none;
-  margin-top: 2rem;
+  margin-top: .5rem;
   text-align: center;
   cursor: pointer;
   font-weight: 600;
@@ -202,7 +205,6 @@
 .scoreWordClassName {
   color: #1A75C1;
 }
-
 
 @media (max-width: 990px) {
   .signIn {
@@ -249,6 +251,7 @@
     display: flex;
     justify-content: center;
   }
+
 
   .registerForm input {
     width: 250px;

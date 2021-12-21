@@ -214,6 +214,7 @@ button:hover {
 
 .erroSpan {
   background-color: #fff !important;
+  color: red;
 }
 
 .tagX {
