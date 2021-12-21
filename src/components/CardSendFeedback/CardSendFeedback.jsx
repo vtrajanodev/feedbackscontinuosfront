@@ -44,7 +44,7 @@ export const CardSendFeedback = ({ styles }) => {
 
   return (
     <div className={styles.cardList}>
-      <h2>Enviar feedback</h2>
+      <h2>Enviar Feedback</h2>
       {employeeList.map(employee => (
         <div key={employee.idFuncionario}>
           <div className={styles.card}>
@@ -59,7 +59,7 @@ export const CardSendFeedback = ({ styles }) => {
                 <p>{employee.email}</p>
               </div>
               <div>
-                <button onClick={() => handleOpenNewSendFeedbackModal(employee)} >Enviar um feedback</button>
+                <button onClick={() => handleOpenNewSendFeedbackModal(employee)} >Enviar feedback</button>
               </div>
             </div>
           </div>
@@ -101,6 +101,8 @@ export const CardSendFeedback = ({ styles }) => {
               </div>
               <div className={styles.feedbackContent}>
                 <div>
+                  <small>- Selecione de 1 a 3 tags <br/></small>
+                  <small>- Clique em uma tag para removê-la<br/></small>
                   <label htmlFor="feedbackTags">Selecione uma tag: </label> <br />
                   <Field disabled={selectedTag.length === 3} as="select" name="idTag" id="feedbackTags" onChange={(e) => {
 
