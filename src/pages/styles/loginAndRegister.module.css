@@ -105,6 +105,7 @@
   margin: 0 auto;
   display: block;
   margin-bottom: 2px;
+  caret-color: #008cff;
 }
 
 .registerForm input::placeholder {
